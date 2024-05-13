@@ -23,6 +23,25 @@
 		4430C96B2BF1A93300DB4F04 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 4430C96A2BF1A93300DB4F04 /* RxRelay */; };
 		4430C96E2BF1A9AE00DB4F04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4430C96D2BF1A9AE00DB4F04 /* SnapKit */; };
 		4430C9712BF1AA1600DB4F04 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4430C9702BF1AA1600DB4F04 /* ReactorKit */; };
+		44C70DCC2BF1ACE4004A87A2 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DCB2BF1ACE4004A87A2 /* NetworkAPI.swift */; };
+		44C70DCE2BF1ACEE004A87A2 /* NetworkAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DCD2BF1ACEE004A87A2 /* NetworkAPIManager.swift */; };
+		44C70DDF2BF1B034004A87A2 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DCF2BF1B033004A87A2 /* Data.swift */; };
+		44C70DE02BF1B034004A87A2 /* VideoPlayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD02BF1B033004A87A2 /* VideoPlayList.swift */; };
+		44C70DE12BF1B034004A87A2 /* TrackArtistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD12BF1B033004A87A2 /* TrackArtistList.swift */; };
+		44C70DE22BF1B034004A87A2 /* RepresentationArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD22BF1B033004A87A2 /* RepresentationArtist.swift */; };
+		44C70DE32BF1B034004A87A2 /* ProgramCategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD32BF1B033004A87A2 /* ProgramCategoryList.swift */; };
+		44C70DE42BF1B034004A87A2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD42BF1B033004A87A2 /* Album.swift */; };
+		44C70DE52BF1B034004A87A2 /* SongData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD52BF1B033004A87A2 /* SongData.swift */; };
+		44C70DE62BF1B034004A87A2 /* ShortcutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD62BF1B033004A87A2 /* ShortcutList.swift */; };
+		44C70DE72BF1B034004A87A2 /* TrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD72BF1B033004A87A2 /* TrackList.swift */; };
+		44C70DE82BF1B034004A87A2 /* SectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD82BF1B033004A87A2 /* SectionList.swift */; };
+		44C70DE92BF1B034004A87A2 /* ChartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD92BF1B034004A87A2 /* ChartList.swift */; };
+		44C70DEA2BF1B034004A87A2 /* ThumbnailImageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DDA2BF1B034004A87A2 /* ThumbnailImageList.swift */; };
+		44C70DEB2BF1B034004A87A2 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DDB2BF1B034004A87A2 /* VideoList.swift */; };
+		44C70DEC2BF1B034004A87A2 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DDC2BF1B034004A87A2 /* List.swift */; };
+		44C70DED2BF1B034004A87A2 /* ImgList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DDD2BF1B034004A87A2 /* ImgList.swift */; };
+		44C70DEE2BF1B034004A87A2 /* PlaylistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DDE2BF1B034004A87A2 /* PlaylistData.swift */; };
+		44C70DF02BF1B05B004A87A2 /* NetworkAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DEF2BF1B05B004A87A2 /* NetworkAPIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +75,25 @@
 		4430C94B2BF1A22E00DB4F04 /* PlaylistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaylistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4430C94F2BF1A22E00DB4F04 /* PlaylistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistUITests.swift; sourceTree = "<group>"; };
 		4430C9512BF1A22E00DB4F04 /* PlaylistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		44C70DCB2BF1ACE4004A87A2 /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
+		44C70DCD2BF1ACEE004A87A2 /* NetworkAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIManager.swift; sourceTree = "<group>"; };
+		44C70DCF2BF1B033004A87A2 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		44C70DD02BF1B033004A87A2 /* VideoPlayList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayList.swift; sourceTree = "<group>"; };
+		44C70DD12BF1B033004A87A2 /* TrackArtistList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackArtistList.swift; sourceTree = "<group>"; };
+		44C70DD22BF1B033004A87A2 /* RepresentationArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepresentationArtist.swift; sourceTree = "<group>"; };
+		44C70DD32BF1B033004A87A2 /* ProgramCategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramCategoryList.swift; sourceTree = "<group>"; };
+		44C70DD42BF1B033004A87A2 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		44C70DD52BF1B033004A87A2 /* SongData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongData.swift; sourceTree = "<group>"; };
+		44C70DD62BF1B033004A87A2 /* ShortcutList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutList.swift; sourceTree = "<group>"; };
+		44C70DD72BF1B033004A87A2 /* TrackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackList.swift; sourceTree = "<group>"; };
+		44C70DD82BF1B033004A87A2 /* SectionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionList.swift; sourceTree = "<group>"; };
+		44C70DD92BF1B034004A87A2 /* ChartList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartList.swift; sourceTree = "<group>"; };
+		44C70DDA2BF1B034004A87A2 /* ThumbnailImageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailImageList.swift; sourceTree = "<group>"; };
+		44C70DDB2BF1B034004A87A2 /* VideoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
+		44C70DDC2BF1B034004A87A2 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		44C70DDD2BF1B034004A87A2 /* ImgList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgList.swift; sourceTree = "<group>"; };
+		44C70DDE2BF1B034004A87A2 /* PlaylistData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistData.swift; sourceTree = "<group>"; };
+		44C70DEF2BF1B05B004A87A2 /* NetworkAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +131,7 @@
 		4430C9222BF1A22C00DB4F04 = {
 			isa = PBXGroup;
 			children = (
+				44C70DB92BF1ACB4004A87A2 /* Network */,
 				4430C92D2BF1A22C00DB4F04 /* Playlist */,
 				4430C9442BF1A22E00DB4F04 /* PlaylistTests */,
 				4430C94E2BF1A22E00DB4F04 /* PlaylistUITests */,
@@ -139,6 +178,48 @@
 				4430C9512BF1A22E00DB4F04 /* PlaylistUITestsLaunchTests.swift */,
 			);
 			path = PlaylistUITests;
+			sourceTree = "<group>";
+		};
+		44C70DB92BF1ACB4004A87A2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				44C70DBA2BF1ACB4004A87A2 /* APIs */,
+				44C70DC02BF1ACB4004A87A2 /* Model */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		44C70DBA2BF1ACB4004A87A2 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				44C70DCB2BF1ACE4004A87A2 /* NetworkAPI.swift */,
+				44C70DCD2BF1ACEE004A87A2 /* NetworkAPIManager.swift */,
+				44C70DEF2BF1B05B004A87A2 /* NetworkAPIError.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		44C70DC02BF1ACB4004A87A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44C70DD42BF1B033004A87A2 /* Album.swift */,
+				44C70DD92BF1B034004A87A2 /* ChartList.swift */,
+				44C70DCF2BF1B033004A87A2 /* Data.swift */,
+				44C70DDD2BF1B034004A87A2 /* ImgList.swift */,
+				44C70DDC2BF1B034004A87A2 /* List.swift */,
+				44C70DDE2BF1B034004A87A2 /* PlaylistData.swift */,
+				44C70DD32BF1B033004A87A2 /* ProgramCategoryList.swift */,
+				44C70DD22BF1B033004A87A2 /* RepresentationArtist.swift */,
+				44C70DD82BF1B033004A87A2 /* SectionList.swift */,
+				44C70DD62BF1B033004A87A2 /* ShortcutList.swift */,
+				44C70DD52BF1B033004A87A2 /* SongData.swift */,
+				44C70DDA2BF1B034004A87A2 /* ThumbnailImageList.swift */,
+				44C70DD12BF1B033004A87A2 /* TrackArtistList.swift */,
+				44C70DD72BF1B033004A87A2 /* TrackList.swift */,
+				44C70DDB2BF1B034004A87A2 /* VideoList.swift */,
+				44C70DD02BF1B033004A87A2 /* VideoPlayList.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,9 +370,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44C70DE72BF1B034004A87A2 /* TrackList.swift in Sources */,
+				44C70DE52BF1B034004A87A2 /* SongData.swift in Sources */,
+				44C70DDF2BF1B034004A87A2 /* Data.swift in Sources */,
+				44C70DEE2BF1B034004A87A2 /* PlaylistData.swift in Sources */,
+				44C70DE22BF1B034004A87A2 /* RepresentationArtist.swift in Sources */,
+				44C70DE62BF1B034004A87A2 /* ShortcutList.swift in Sources */,
+				44C70DCC2BF1ACE4004A87A2 /* NetworkAPI.swift in Sources */,
+				44C70DEA2BF1B034004A87A2 /* ThumbnailImageList.swift in Sources */,
 				4430C9332BF1A22C00DB4F04 /* ViewController.swift in Sources */,
+				44C70DE32BF1B034004A87A2 /* ProgramCategoryList.swift in Sources */,
 				4430C92F2BF1A22C00DB4F04 /* AppDelegate.swift in Sources */,
+				44C70DE12BF1B034004A87A2 /* TrackArtistList.swift in Sources */,
+				44C70DED2BF1B034004A87A2 /* ImgList.swift in Sources */,
+				44C70DEB2BF1B034004A87A2 /* VideoList.swift in Sources */,
+				44C70DEC2BF1B034004A87A2 /* List.swift in Sources */,
 				4430C9312BF1A22C00DB4F04 /* SceneDelegate.swift in Sources */,
+				44C70DCE2BF1ACEE004A87A2 /* NetworkAPIManager.swift in Sources */,
+				44C70DE82BF1B034004A87A2 /* SectionList.swift in Sources */,
+				44C70DE02BF1B034004A87A2 /* VideoPlayList.swift in Sources */,
+				44C70DE92BF1B034004A87A2 /* ChartList.swift in Sources */,
+				44C70DE42BF1B034004A87A2 /* Album.swift in Sources */,
+				44C70DF02BF1B05B004A87A2 /* NetworkAPIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
