@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4408ECC22BF1F4EC007D21A4 /* View+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DFD2BF1B90E004A87A2 /* View+AutoLayout.swift */; };
+		4408ECC32BF1F4EF007D21A4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DF92BF1B90E004A87A2 /* UIViewController.swift */; };
+		4408ECC42BF1F4F1007D21A4 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DF72BF1B90E004A87A2 /* AlertController.swift */; };
+		4408ECC52BF1F4F3007D21A4 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DFA2BF1B90E004A87A2 /* Application.swift */; };
+		4408ECC62BF1F4F8007D21A4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DFE2BF1B90E004A87A2 /* Color.swift */; };
+		4408ECC72BF1F4FA007D21A4 /* SafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DFB2BF1B90E004A87A2 /* SafeArray.swift */; };
+		4408ECC82BF1F4FE007D21A4 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DF82BF1B90E004A87A2 /* UITableView.swift */; };
 		4430C92F2BF1A22C00DB4F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C92E2BF1A22C00DB4F04 /* AppDelegate.swift */; };
 		4430C9312BF1A22C00DB4F04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C9302BF1A22C00DB4F04 /* SceneDelegate.swift */; };
 		4430C9332BF1A22C00DB4F04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C9322BF1A22C00DB4F04 /* ViewController.swift */; };
@@ -42,6 +49,9 @@
 		44C70DED2BF1B034004A87A2 /* ImgList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DDD2BF1B034004A87A2 /* ImgList.swift */; };
 		44C70DEE2BF1B034004A87A2 /* PlaylistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DDE2BF1B034004A87A2 /* PlaylistData.swift */; };
 		44C70DF02BF1B05B004A87A2 /* NetworkAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DEF2BF1B05B004A87A2 /* NetworkAPIError.swift */; };
+		44C70E0A2BF1CC1E004A87A2 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E092BF1CC1E004A87A2 /* CollectionView.swift */; };
+		44C70E0C2BF1CC71004A87A2 /* SharedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E0B2BF1CC71004A87A2 /* SharedFunctions.swift */; };
+		44C70E102BF1CFC7004A87A2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E0F2BF1CFC7004A87A2 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +104,16 @@
 		44C70DDD2BF1B034004A87A2 /* ImgList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgList.swift; sourceTree = "<group>"; };
 		44C70DDE2BF1B034004A87A2 /* PlaylistData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistData.swift; sourceTree = "<group>"; };
 		44C70DEF2BF1B05B004A87A2 /* NetworkAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIError.swift; sourceTree = "<group>"; };
+		44C70DF72BF1B90E004A87A2 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		44C70DF82BF1B90E004A87A2 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		44C70DF92BF1B90E004A87A2 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		44C70DFA2BF1B90E004A87A2 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		44C70DFB2BF1B90E004A87A2 /* SafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeArray.swift; sourceTree = "<group>"; };
+		44C70DFD2BF1B90E004A87A2 /* View+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AutoLayout.swift"; sourceTree = "<group>"; };
+		44C70DFE2BF1B90E004A87A2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		44C70E092BF1CC1E004A87A2 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		44C70E0B2BF1CC71004A87A2 /* SharedFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedFunctions.swift; sourceTree = "<group>"; };
+		44C70E0F2BF1CFC7004A87A2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +151,7 @@
 		4430C9222BF1A22C00DB4F04 = {
 			isa = PBXGroup;
 			children = (
+				44C70DF62BF1B90E004A87A2 /* Extensions */,
 				44C70DB92BF1ACB4004A87A2 /* Network */,
 				4430C92D2BF1A22C00DB4F04 /* Playlist */,
 				4430C9442BF1A22E00DB4F04 /* PlaylistTests */,
@@ -220,6 +241,23 @@
 				44C70DD02BF1B033004A87A2 /* VideoPlayList.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		44C70DF62BF1B90E004A87A2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44C70DF72BF1B90E004A87A2 /* AlertController.swift */,
+				44C70DFA2BF1B90E004A87A2 /* Application.swift */,
+				44C70E092BF1CC1E004A87A2 /* CollectionView.swift */,
+				44C70DFE2BF1B90E004A87A2 /* Color.swift */,
+				44C70DFB2BF1B90E004A87A2 /* SafeArray.swift */,
+				44C70E0B2BF1CC71004A87A2 /* SharedFunctions.swift */,
+				44C70DF82BF1B90E004A87A2 /* UITableView.swift */,
+				44C70DF92BF1B90E004A87A2 /* UIViewController.swift */,
+				44C70DFD2BF1B90E004A87A2 /* View+AutoLayout.swift */,
+				44C70E0F2BF1CFC7004A87A2 /* String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,16 +408,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44C70E102BF1CFC7004A87A2 /* String.swift in Sources */,
 				44C70DE72BF1B034004A87A2 /* TrackList.swift in Sources */,
 				44C70DE52BF1B034004A87A2 /* SongData.swift in Sources */,
 				44C70DDF2BF1B034004A87A2 /* Data.swift in Sources */,
 				44C70DEE2BF1B034004A87A2 /* PlaylistData.swift in Sources */,
+				4408ECC82BF1F4FE007D21A4 /* UITableView.swift in Sources */,
 				44C70DE22BF1B034004A87A2 /* RepresentationArtist.swift in Sources */,
 				44C70DE62BF1B034004A87A2 /* ShortcutList.swift in Sources */,
 				44C70DCC2BF1ACE4004A87A2 /* NetworkAPI.swift in Sources */,
 				44C70DEA2BF1B034004A87A2 /* ThumbnailImageList.swift in Sources */,
 				4430C9332BF1A22C00DB4F04 /* ViewController.swift in Sources */,
 				44C70DE32BF1B034004A87A2 /* ProgramCategoryList.swift in Sources */,
+				4408ECC42BF1F4F1007D21A4 /* AlertController.swift in Sources */,
 				4430C92F2BF1A22C00DB4F04 /* AppDelegate.swift in Sources */,
 				44C70DE12BF1B034004A87A2 /* TrackArtistList.swift in Sources */,
 				44C70DED2BF1B034004A87A2 /* ImgList.swift in Sources */,
@@ -387,9 +428,16 @@
 				44C70DEC2BF1B034004A87A2 /* List.swift in Sources */,
 				4430C9312BF1A22C00DB4F04 /* SceneDelegate.swift in Sources */,
 				44C70DCE2BF1ACEE004A87A2 /* NetworkAPIManager.swift in Sources */,
+				4408ECC22BF1F4EC007D21A4 /* View+AutoLayout.swift in Sources */,
+				4408ECC62BF1F4F8007D21A4 /* Color.swift in Sources */,
+				44C70E0C2BF1CC71004A87A2 /* SharedFunctions.swift in Sources */,
+				44C70E0A2BF1CC1E004A87A2 /* CollectionView.swift in Sources */,
+				4408ECC72BF1F4FA007D21A4 /* SafeArray.swift in Sources */,
+				4408ECC52BF1F4F3007D21A4 /* Application.swift in Sources */,
 				44C70DE82BF1B034004A87A2 /* SectionList.swift in Sources */,
 				44C70DE02BF1B034004A87A2 /* VideoPlayList.swift in Sources */,
 				44C70DE92BF1B034004A87A2 /* ChartList.swift in Sources */,
+				4408ECC32BF1F4EF007D21A4 /* UIViewController.swift in Sources */,
 				44C70DE42BF1B034004A87A2 /* Album.swift in Sources */,
 				44C70DF02BF1B05B004A87A2 /* NetworkAPIError.swift in Sources */,
 			);
