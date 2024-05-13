@@ -14,9 +14,11 @@
 		4408ECC62BF1F4F8007D21A4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DFE2BF1B90E004A87A2 /* Color.swift */; };
 		4408ECC72BF1F4FA007D21A4 /* SafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DFB2BF1B90E004A87A2 /* SafeArray.swift */; };
 		4408ECC82BF1F4FE007D21A4 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DF82BF1B90E004A87A2 /* UITableView.swift */; };
+		4408ECCA2BF20958007D21A4 /* ChartTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408ECC92BF20958007D21A4 /* ChartTableCell.swift */; };
+		4408ECCC2BF20973007D21A4 /* ChartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4408ECCB2BF20973007D21A4 /* ChartTableCell.xib */; };
 		4430C92F2BF1A22C00DB4F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C92E2BF1A22C00DB4F04 /* AppDelegate.swift */; };
 		4430C9312BF1A22C00DB4F04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C9302BF1A22C00DB4F04 /* SceneDelegate.swift */; };
-		4430C9332BF1A22C00DB4F04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C9322BF1A22C00DB4F04 /* ViewController.swift */; };
+		4430C9332BF1A22C00DB4F04 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C9322BF1A22C00DB4F04 /* PlaylistViewController.swift */; };
 		4430C9362BF1A22C00DB4F04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4430C9342BF1A22C00DB4F04 /* Main.storyboard */; };
 		4430C9382BF1A22E00DB4F04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4430C9372BF1A22E00DB4F04 /* Assets.xcassets */; };
 		4430C93B2BF1A22E00DB4F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4430C9392BF1A22E00DB4F04 /* LaunchScreen.storyboard */; };
@@ -49,6 +51,11 @@
 		44C70DED2BF1B034004A87A2 /* ImgList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DDD2BF1B034004A87A2 /* ImgList.swift */; };
 		44C70DEE2BF1B034004A87A2 /* PlaylistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DDE2BF1B034004A87A2 /* PlaylistData.swift */; };
 		44C70DF02BF1B05B004A87A2 /* NetworkAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DEF2BF1B05B004A87A2 /* NetworkAPIError.swift */; };
+		44C70DF42BF1B6D6004A87A2 /* PlaylistReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DF32BF1B6D6004A87A2 /* PlaylistReactor.swift */; };
+		44C70E012BF1BA7D004A87A2 /* PlaylistHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E002BF1BA7D004A87A2 /* PlaylistHeaderView.swift */; };
+		44C70E032BF1BAA5004A87A2 /* PlaylistHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C70E022BF1BAA5004A87A2 /* PlaylistHeaderView.xib */; };
+		44C70E062BF1BB3F004A87A2 /* PlaylistHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E052BF1BB3F004A87A2 /* PlaylistHeaderCell.swift */; };
+		44C70E082BF1BB47004A87A2 /* PlaylistHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C70E072BF1BB47004A87A2 /* PlaylistHeaderCell.xib */; };
 		44C70E0A2BF1CC1E004A87A2 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E092BF1CC1E004A87A2 /* CollectionView.swift */; };
 		44C70E0C2BF1CC71004A87A2 /* SharedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E0B2BF1CC71004A87A2 /* SharedFunctions.swift */; };
 		44C70E102BF1CFC7004A87A2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E0F2BF1CFC7004A87A2 /* String.swift */; };
@@ -72,10 +79,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4408ECC92BF20958007D21A4 /* ChartTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableCell.swift; sourceTree = "<group>"; };
+		4408ECCB2BF20973007D21A4 /* ChartTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableCell.xib; sourceTree = "<group>"; };
 		4430C92B2BF1A22C00DB4F04 /* Playlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4430C92E2BF1A22C00DB4F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4430C9302BF1A22C00DB4F04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4430C9322BF1A22C00DB4F04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4430C9322BF1A22C00DB4F04 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		4430C9352BF1A22C00DB4F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4430C9372BF1A22E00DB4F04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4430C93A2BF1A22E00DB4F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -104,6 +113,7 @@
 		44C70DDD2BF1B034004A87A2 /* ImgList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgList.swift; sourceTree = "<group>"; };
 		44C70DDE2BF1B034004A87A2 /* PlaylistData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistData.swift; sourceTree = "<group>"; };
 		44C70DEF2BF1B05B004A87A2 /* NetworkAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIError.swift; sourceTree = "<group>"; };
+		44C70DF32BF1B6D6004A87A2 /* PlaylistReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistReactor.swift; sourceTree = "<group>"; };
 		44C70DF72BF1B90E004A87A2 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		44C70DF82BF1B90E004A87A2 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		44C70DF92BF1B90E004A87A2 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +121,10 @@
 		44C70DFB2BF1B90E004A87A2 /* SafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeArray.swift; sourceTree = "<group>"; };
 		44C70DFD2BF1B90E004A87A2 /* View+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AutoLayout.swift"; sourceTree = "<group>"; };
 		44C70DFE2BF1B90E004A87A2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		44C70E002BF1BA7D004A87A2 /* PlaylistHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistHeaderView.swift; sourceTree = "<group>"; };
+		44C70E022BF1BAA5004A87A2 /* PlaylistHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistHeaderView.xib; sourceTree = "<group>"; };
+		44C70E052BF1BB3F004A87A2 /* PlaylistHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistHeaderCell.swift; sourceTree = "<group>"; };
+		44C70E072BF1BB47004A87A2 /* PlaylistHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistHeaderCell.xib; sourceTree = "<group>"; };
 		44C70E092BF1CC1E004A87A2 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		44C70E0B2BF1CC71004A87A2 /* SharedFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedFunctions.swift; sourceTree = "<group>"; };
 		44C70E0F2BF1CFC7004A87A2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -173,9 +187,10 @@
 		4430C92D2BF1A22C00DB4F04 /* Playlist */ = {
 			isa = PBXGroup;
 			children = (
+				44C70DF52BF1B732004A87A2 /* View */,
+				44C70DF22BF1B6C8004A87A2 /* ViewModel */,
 				4430C92E2BF1A22C00DB4F04 /* AppDelegate.swift */,
 				4430C9302BF1A22C00DB4F04 /* SceneDelegate.swift */,
-				4430C9322BF1A22C00DB4F04 /* ViewController.swift */,
 				4430C9342BF1A22C00DB4F04 /* Main.storyboard */,
 				4430C9372BF1A22E00DB4F04 /* Assets.xcassets */,
 				4430C9392BF1A22E00DB4F04 /* LaunchScreen.storyboard */,
@@ -243,6 +258,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		44C70DF22BF1B6C8004A87A2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				44C70DF32BF1B6D6004A87A2 /* PlaylistReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		44C70DF52BF1B732004A87A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44C70E112BF1D2AA004A87A2 /* Chart */,
+				44C70DFF2BF1BA68004A87A2 /* Header */,
+				4430C9322BF1A22C00DB4F04 /* PlaylistViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		44C70DF62BF1B90E004A87A2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +291,42 @@
 				44C70E0F2BF1CFC7004A87A2 /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		44C70DFF2BF1BA68004A87A2 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				44C70E122BF1D4A9004A87A2 /* View */,
+				44C70E042BF1BB2B004A87A2 /* Cell */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		44C70E042BF1BB2B004A87A2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				44C70E052BF1BB3F004A87A2 /* PlaylistHeaderCell.swift */,
+				44C70E072BF1BB47004A87A2 /* PlaylistHeaderCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		44C70E112BF1D2AA004A87A2 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				4408ECC92BF20958007D21A4 /* ChartTableCell.swift */,
+				4408ECCB2BF20973007D21A4 /* ChartTableCell.xib */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		44C70E122BF1D4A9004A87A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44C70E002BF1BA7D004A87A2 /* PlaylistHeaderView.swift */,
+				44C70E022BF1BAA5004A87A2 /* PlaylistHeaderView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,8 +451,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4430C93B2BF1A22E00DB4F04 /* LaunchScreen.storyboard in Resources */,
+				44C70E032BF1BAA5004A87A2 /* PlaylistHeaderView.xib in Resources */,
+				44C70E082BF1BB47004A87A2 /* PlaylistHeaderCell.xib in Resources */,
 				4430C9382BF1A22E00DB4F04 /* Assets.xcassets in Resources */,
 				4430C9362BF1A22C00DB4F04 /* Main.storyboard in Resources */,
+				4408ECCC2BF20973007D21A4 /* ChartTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +490,7 @@
 				44C70DE62BF1B034004A87A2 /* ShortcutList.swift in Sources */,
 				44C70DCC2BF1ACE4004A87A2 /* NetworkAPI.swift in Sources */,
 				44C70DEA2BF1B034004A87A2 /* ThumbnailImageList.swift in Sources */,
-				4430C9332BF1A22C00DB4F04 /* ViewController.swift in Sources */,
+				4430C9332BF1A22C00DB4F04 /* PlaylistViewController.swift in Sources */,
 				44C70DE32BF1B034004A87A2 /* ProgramCategoryList.swift in Sources */,
 				4408ECC42BF1F4F1007D21A4 /* AlertController.swift in Sources */,
 				4430C92F2BF1A22C00DB4F04 /* AppDelegate.swift in Sources */,
@@ -431,13 +503,17 @@
 				4408ECC22BF1F4EC007D21A4 /* View+AutoLayout.swift in Sources */,
 				4408ECC62BF1F4F8007D21A4 /* Color.swift in Sources */,
 				44C70E0C2BF1CC71004A87A2 /* SharedFunctions.swift in Sources */,
+				44C70E012BF1BA7D004A87A2 /* PlaylistHeaderView.swift in Sources */,
 				44C70E0A2BF1CC1E004A87A2 /* CollectionView.swift in Sources */,
 				4408ECC72BF1F4FA007D21A4 /* SafeArray.swift in Sources */,
 				4408ECC52BF1F4F3007D21A4 /* Application.swift in Sources */,
 				44C70DE82BF1B034004A87A2 /* SectionList.swift in Sources */,
+				44C70E062BF1BB3F004A87A2 /* PlaylistHeaderCell.swift in Sources */,
 				44C70DE02BF1B034004A87A2 /* VideoPlayList.swift in Sources */,
 				44C70DE92BF1B034004A87A2 /* ChartList.swift in Sources */,
 				4408ECC32BF1F4EF007D21A4 /* UIViewController.swift in Sources */,
+				44C70DF42BF1B6D6004A87A2 /* PlaylistReactor.swift in Sources */,
+				4408ECCA2BF20958007D21A4 /* ChartTableCell.swift in Sources */,
 				44C70DE42BF1B034004A87A2 /* Album.swift in Sources */,
 				44C70DF02BF1B05B004A87A2 /* NetworkAPIError.swift in Sources */,
 			);
