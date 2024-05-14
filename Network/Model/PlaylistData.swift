@@ -6,5 +6,5 @@ import Foundation
 
 struct PlaylistData: Decodable {
 	let code: String
-	let data: Data
+	let data: ListData
 }

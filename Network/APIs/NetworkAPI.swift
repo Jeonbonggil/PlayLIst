@@ -15,14 +15,14 @@ public enum NetworkAPI {
 
 extension NetworkAPI: TargetType {
     public var baseURL: URL {
-        return URL(string: "https://raw.githubusercontent.com/dreamus-ios/challenge/main")!
+        return URL(string: "https://raw.githubusercontent.com")!
     }
     public var path: String {
         switch self {
         case .playlist:
-            return "browser"
-        case .songDetail(let trackID):
-            return "track/" + trackID
+            return "dreamus-ios/challenge/main/browser"
+        case .songDetail:
+            return "dreamus-ios/challenge/main/track"
         }
     }
     public var method: Moya.Method {
@@ -49,7 +49,7 @@ extension NetworkAPI: TargetType {
         }
     }
     public var headers: [String: String]? {
-        let headers = ["": ""]
+        let headers = ["Accept": "*/*", "Content-Type": "application/json"]
         return headers
     }
 }

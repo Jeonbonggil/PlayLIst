@@ -13,3 +13,13 @@ struct ChartList: Decodable {
 	let trackList: [TrackList]
 	let type: String
 }
+
+extension ChartList {
+    func title() -> String {
+        return name + " " + basedOnUpdate
+    }
+    
+    func desc() -> String {
+        return descriptionField
+    }
+}

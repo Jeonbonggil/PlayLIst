@@ -16,42 +16,60 @@ final public class NetworkAPIManager {
     private let provider = MoyaProvider<NetworkAPI>()
     
     /// API 요청
-    func requestAPI<ResponseObject: Decodable>(api: TargetType) async throws -> ResponseObject {
-        let result = await provider.request(api)
-        do {
-            let response = try result.get()
-            let object = try response.map(ResponseObject.self)
-            switch response.statusCode {
-            case 200...299:
-                return object
-            case 400...499:
-                throw NetworkAPIError.requestError(response.description)
-            case 500...599:
-                throw NetworkAPIError.serverError(response.description)
-            default:
-                throw NetworkAPIError.decodeError(response.description)
+    func request<ResponseObject: Decodable>(
+        api: Any,
+        responseObject: ResponseObject.Type,
+        onSuccess success: @escaping (ResponseObject) -> Void,
+        onFailure failure: @escaping (NetworkAPIError) -> Void,
+        retry: (() -> Void)? = nil
+    ) {
+        provider.request(api as! NetworkAPI) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case let .success(response):
+                do {
+                    let responseObject = try response.map(ResponseObject.self)
+                    success(responseObject)
+                } catch {
+                    failure(.decodeError(response.description))
+                }
+            case .failure(let error):
+                if retryCount < Self.maxRetryCount {
+                    retryCount += 1
+                    retry?()
+                } else {
+                    retryCount = 0
+                    if let desc = error.errorDescription {
+                        failure(.requestError(desc))
+                    } else {
+                        failure(.serverError("serverError"))
+                    }
+                }
             }
-        } catch {
-            throw NetworkAPIError.decodeError(try result.get().description)
         }
-    }
-    /// Music Playlist 가져오기 API
-    static func fetchPlayList() async throws -> PlaylistData {
-        try await shared.requestAPI(api: NetworkAPI.playlist)
     }
     
-    /// 곡 상세 정보 가져오기 API
-    static func fetchSongDetail(trackID: String) async throws -> SongData {
-        try await shared.requestAPI(api: NetworkAPI.songDetail(trackID: trackID))
+    /// Music Playlist 가져오기 API
+    static func fetchPlayList(
+        onSuccess success: @escaping (PlaylistData) -> Void,
+        onFailure failure: @escaping failureClosure
+    ) {
+        shared.request(
+            api: NetworkAPI.playlist,
+            responseObject: PlaylistData.self,
+            onSuccess: success,
+            onFailure: failure)
     }
-}
-
-extension MoyaProvider {
-    func request(_ target: TargetType) async -> Result<Response, MoyaError> {
-        await withCheckedContinuation { continuation in
-            self.request(target as! Target) { result in
-                continuation.resume(returning: result)
-            }
-        }
+    /// 상세 곡 정보 가져오기 API
+    static func fetchSongData(
+        trackID: String,
+        onSuccess success: @escaping (SongData) -> Void,
+        onFailure failure: @escaping failureClosure
+    ) {
+        shared.request(
+            api: NetworkAPI.songDetail(trackID: trackID),
+            responseObject: SongData.self,
+            onSuccess: success,
+            onFailure: failure)
     }
 }

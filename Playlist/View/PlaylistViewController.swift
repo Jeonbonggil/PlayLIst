@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 import ReactorKit
 
-class PlaylistViewController: UIViewController, View {
+final class PlaylistViewController: UIViewController, StoryboardView {
     @IBOutlet weak var headerView: PlaylistHeaderView! {
         didSet {
             headerView.headerTitles = sectionTitles
@@ -22,15 +22,21 @@ class PlaylistViewController: UIViewController, View {
             tableView.dataSource = self
             tableView.separatorInset = .zero
             tableView.separatorStyle = .none
-//            tableView.register(UITableViewCell.self)
+            tableView.register(ChartTableCell.self)
         }
     }
+    private let sectionTitles = ["차트", "장르/테마", "오디오", "비디오"]
     var reactor = PlaylistReactor()
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bind(reactor: reactor)
+        reactor.action.onNext(.loadPlaylist)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func bind(reactor: PlaylistReactor) {
@@ -42,16 +48,24 @@ class PlaylistViewController: UIViewController, View {
                 self?.tableView.reloadData()
             }
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.songData }
+            .filter { $0 != nil }
+            .subscribe { [weak self] songData in
+                print("Song Data: \(String(describing: songData))")
+            }
+            .disposed(by: disposeBag)
     }
 }
 
 extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return SectionType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Playlist"
+        return sectionTitles[section]
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -59,7 +73,17 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let sectionType = SectionType.allCases[section]
+        switch sectionType {
+        case .rankChart:
+            return 1
+        case .genreNTheme:
+            return 1
+        case .audio:
+            return 1
+        case .video:
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -67,9 +91,25 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(for: indexPath) as UITableViewCell
-//        cell.selectionStyle = .none
-//        return cell
-        return UITableViewCell()
+        let sectionType = SectionType.allCases[indexPath.section]
+        switch sectionType {
+        case .rankChart:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ChartTableCell
+            cell.selectionStyle = .none
+            return cell
+        case .genreNTheme:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ChartTableCell
+            cell.selectionStyle = .none
+            return cell
+        case .audio:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ChartTableCell
+            cell.selectionStyle = .none
+            return cell
+        case .video:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ChartTableCell
+            cell.selectionStyle = .none
+            return cell
+        }
+        
     }
 }

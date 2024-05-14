@@ -16,6 +16,13 @@
 		4408ECC82BF1F4FE007D21A4 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DF82BF1B90E004A87A2 /* UITableView.swift */; };
 		4408ECCA2BF20958007D21A4 /* ChartTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408ECC92BF20958007D21A4 /* ChartTableCell.swift */; };
 		4408ECCC2BF20973007D21A4 /* ChartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4408ECCB2BF20973007D21A4 /* ChartTableCell.xib */; };
+		4408ECCF2BF30A10007D21A4 /* ChartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408ECCE2BF30A10007D21A4 /* ChartItemCell.swift */; };
+		4408ECD12BF30A44007D21A4 /* ChartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4408ECD02BF30A44007D21A4 /* ChartItemCell.xib */; };
+		4408ECD32BF32E87007D21A4 /* ChartItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408ECD22BF32E87007D21A4 /* ChartItemListCell.swift */; };
+		4408ECD52BF32ED5007D21A4 /* ChartItemListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4408ECD42BF32ED5007D21A4 /* ChartItemListCell.xib */; };
+		4408ECD72BF33D67007D21A4 /* GenreTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408ECD62BF33D67007D21A4 /* GenreTableCell.swift */; };
+		4408ECDA2BF33E8E007D21A4 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 4408ECD92BF33E8E007D21A4 /* RxGesture */; };
+		4408ECDC2BF33F43007D21A4 /* GenreTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4408ECDB2BF33F43007D21A4 /* GenreTableCell.xib */; };
 		4430C92F2BF1A22C00DB4F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C92E2BF1A22C00DB4F04 /* AppDelegate.swift */; };
 		4430C9312BF1A22C00DB4F04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C9302BF1A22C00DB4F04 /* SceneDelegate.swift */; };
 		4430C9332BF1A22C00DB4F04 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C9322BF1A22C00DB4F04 /* PlaylistViewController.swift */; };
@@ -34,7 +41,7 @@
 		4430C9712BF1AA1600DB4F04 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4430C9702BF1AA1600DB4F04 /* ReactorKit */; };
 		44C70DCC2BF1ACE4004A87A2 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DCB2BF1ACE4004A87A2 /* NetworkAPI.swift */; };
 		44C70DCE2BF1ACEE004A87A2 /* NetworkAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DCD2BF1ACEE004A87A2 /* NetworkAPIManager.swift */; };
-		44C70DDF2BF1B034004A87A2 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DCF2BF1B033004A87A2 /* Data.swift */; };
+		44C70DDF2BF1B034004A87A2 /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DCF2BF1B033004A87A2 /* ListData.swift */; };
 		44C70DE02BF1B034004A87A2 /* VideoPlayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD02BF1B033004A87A2 /* VideoPlayList.swift */; };
 		44C70DE12BF1B034004A87A2 /* TrackArtistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD12BF1B033004A87A2 /* TrackArtistList.swift */; };
 		44C70DE22BF1B034004A87A2 /* RepresentationArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DD22BF1B033004A87A2 /* RepresentationArtist.swift */; };
@@ -81,6 +88,12 @@
 /* Begin PBXFileReference section */
 		4408ECC92BF20958007D21A4 /* ChartTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableCell.swift; sourceTree = "<group>"; };
 		4408ECCB2BF20973007D21A4 /* ChartTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableCell.xib; sourceTree = "<group>"; };
+		4408ECCE2BF30A10007D21A4 /* ChartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartItemCell.swift; sourceTree = "<group>"; };
+		4408ECD02BF30A44007D21A4 /* ChartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartItemCell.xib; sourceTree = "<group>"; };
+		4408ECD22BF32E87007D21A4 /* ChartItemListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartItemListCell.swift; sourceTree = "<group>"; };
+		4408ECD42BF32ED5007D21A4 /* ChartItemListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartItemListCell.xib; sourceTree = "<group>"; };
+		4408ECD62BF33D67007D21A4 /* GenreTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreTableCell.swift; sourceTree = "<group>"; };
+		4408ECDB2BF33F43007D21A4 /* GenreTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreTableCell.xib; sourceTree = "<group>"; };
 		4430C92B2BF1A22C00DB4F04 /* Playlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4430C92E2BF1A22C00DB4F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4430C9302BF1A22C00DB4F04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +109,7 @@
 		4430C9512BF1A22E00DB4F04 /* PlaylistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		44C70DCB2BF1ACE4004A87A2 /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		44C70DCD2BF1ACEE004A87A2 /* NetworkAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIManager.swift; sourceTree = "<group>"; };
-		44C70DCF2BF1B033004A87A2 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		44C70DCF2BF1B033004A87A2 /* ListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
 		44C70DD02BF1B033004A87A2 /* VideoPlayList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayList.swift; sourceTree = "<group>"; };
 		44C70DD12BF1B033004A87A2 /* TrackArtistList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackArtistList.swift; sourceTree = "<group>"; };
 		44C70DD22BF1B033004A87A2 /* RepresentationArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepresentationArtist.swift; sourceTree = "<group>"; };
@@ -137,6 +150,7 @@
 			files = (
 				4430C96B2BF1A93300DB4F04 /* RxRelay in Frameworks */,
 				4430C9632BF1A66F00DB4F04 /* Kingfisher in Frameworks */,
+				4408ECDA2BF33E8E007D21A4 /* RxGesture in Frameworks */,
 				4430C9712BF1AA1600DB4F04 /* ReactorKit in Frameworks */,
 				4430C9602BF1A5BB00DB4F04 /* Alamofire in Frameworks */,
 				4430C96E2BF1A9AE00DB4F04 /* SnapKit in Frameworks */,
@@ -162,6 +176,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4408ECCD2BF2F48D007D21A4 /* Genre */ = {
+			isa = PBXGroup;
+			children = (
+				4408ECD62BF33D67007D21A4 /* GenreTableCell.swift */,
+				4408ECDB2BF33F43007D21A4 /* GenreTableCell.xib */,
+			);
+			path = Genre;
+			sourceTree = "<group>";
+		};
 		4430C9222BF1A22C00DB4F04 = {
 			isa = PBXGroup;
 			children = (
@@ -239,7 +262,7 @@
 			children = (
 				44C70DD42BF1B033004A87A2 /* Album.swift */,
 				44C70DD92BF1B034004A87A2 /* ChartList.swift */,
-				44C70DCF2BF1B033004A87A2 /* Data.swift */,
+				44C70DCF2BF1B033004A87A2 /* ListData.swift */,
 				44C70DDD2BF1B034004A87A2 /* ImgList.swift */,
 				44C70DDC2BF1B034004A87A2 /* List.swift */,
 				44C70DDE2BF1B034004A87A2 /* PlaylistData.swift */,
@@ -270,6 +293,7 @@
 			children = (
 				44C70E112BF1D2AA004A87A2 /* Chart */,
 				44C70DFF2BF1BA68004A87A2 /* Header */,
+				4408ECCD2BF2F48D007D21A4 /* Genre */,
 				4430C9322BF1A22C00DB4F04 /* PlaylistViewController.swift */,
 				4430C9342BF1A22C00DB4F04 /* Main.storyboard */,
 			);
@@ -316,6 +340,10 @@
 			children = (
 				4408ECC92BF20958007D21A4 /* ChartTableCell.swift */,
 				4408ECCB2BF20973007D21A4 /* ChartTableCell.xib */,
+				4408ECCE2BF30A10007D21A4 /* ChartItemCell.swift */,
+				4408ECD02BF30A44007D21A4 /* ChartItemCell.xib */,
+				4408ECD22BF32E87007D21A4 /* ChartItemListCell.swift */,
+				4408ECD42BF32ED5007D21A4 /* ChartItemListCell.xib */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -353,6 +381,7 @@
 				4430C96A2BF1A93300DB4F04 /* RxRelay */,
 				4430C96D2BF1A9AE00DB4F04 /* SnapKit */,
 				4430C9702BF1AA1600DB4F04 /* ReactorKit */,
+				4408ECD92BF33E8E007D21A4 /* RxGesture */,
 			);
 			productName = Playlist;
 			productReference = 4430C92B2BF1A22C00DB4F04 /* Playlist.app */;
@@ -433,6 +462,7 @@
 				4430C9672BF1A93300DB4F04 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				4430C96C2BF1A9AE00DB4F04 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4430C96F2BF1AA1600DB4F04 /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				4408ECD82BF33E8E007D21A4 /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = 4430C92C2BF1A22C00DB4F04 /* Products */;
 			projectDirPath = "";
@@ -450,10 +480,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4408ECD12BF30A44007D21A4 /* ChartItemCell.xib in Resources */,
 				4430C93B2BF1A22E00DB4F04 /* LaunchScreen.storyboard in Resources */,
 				44C70E032BF1BAA5004A87A2 /* PlaylistHeaderView.xib in Resources */,
+				4408ECD52BF32ED5007D21A4 /* ChartItemListCell.xib in Resources */,
 				44C70E082BF1BB47004A87A2 /* PlaylistHeaderCell.xib in Resources */,
 				4430C9382BF1A22E00DB4F04 /* Assets.xcassets in Resources */,
+				4408ECDC2BF33F43007D21A4 /* GenreTableCell.xib in Resources */,
 				4430C9362BF1A22C00DB4F04 /* Main.storyboard in Resources */,
 				4408ECCC2BF20973007D21A4 /* ChartTableCell.xib in Resources */,
 			);
@@ -483,7 +516,7 @@
 				44C70E102BF1CFC7004A87A2 /* String.swift in Sources */,
 				44C70DE72BF1B034004A87A2 /* TrackList.swift in Sources */,
 				44C70DE52BF1B034004A87A2 /* SongData.swift in Sources */,
-				44C70DDF2BF1B034004A87A2 /* Data.swift in Sources */,
+				44C70DDF2BF1B034004A87A2 /* ListData.swift in Sources */,
 				44C70DEE2BF1B034004A87A2 /* PlaylistData.swift in Sources */,
 				4408ECC82BF1F4FE007D21A4 /* UITableView.swift in Sources */,
 				44C70DE22BF1B034004A87A2 /* RepresentationArtist.swift in Sources */,
@@ -502,16 +535,19 @@
 				44C70DCE2BF1ACEE004A87A2 /* NetworkAPIManager.swift in Sources */,
 				4408ECC22BF1F4EC007D21A4 /* View+AutoLayout.swift in Sources */,
 				4408ECC62BF1F4F8007D21A4 /* Color.swift in Sources */,
+				4408ECD72BF33D67007D21A4 /* GenreTableCell.swift in Sources */,
 				44C70E0C2BF1CC71004A87A2 /* SharedFunctions.swift in Sources */,
 				44C70E012BF1BA7D004A87A2 /* PlaylistHeaderView.swift in Sources */,
 				44C70E0A2BF1CC1E004A87A2 /* CollectionView.swift in Sources */,
 				4408ECC72BF1F4FA007D21A4 /* SafeArray.swift in Sources */,
+				4408ECCF2BF30A10007D21A4 /* ChartItemCell.swift in Sources */,
 				4408ECC52BF1F4F3007D21A4 /* Application.swift in Sources */,
 				44C70DE82BF1B034004A87A2 /* SectionList.swift in Sources */,
 				44C70E062BF1BB3F004A87A2 /* PlaylistHeaderCell.swift in Sources */,
 				44C70DE02BF1B034004A87A2 /* VideoPlayList.swift in Sources */,
 				44C70DE92BF1B034004A87A2 /* ChartList.swift in Sources */,
 				4408ECC32BF1F4EF007D21A4 /* UIViewController.swift in Sources */,
+				4408ECD32BF32E87007D21A4 /* ChartItemListCell.swift in Sources */,
 				44C70DF42BF1B6D6004A87A2 /* PlaylistReactor.swift in Sources */,
 				4408ECCA2BF20958007D21A4 /* ChartTableCell.swift in Sources */,
 				44C70DE42BF1B034004A87A2 /* Album.swift in Sources */,
@@ -864,6 +900,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4408ECD82BF33E8E007D21A4 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.4;
+			};
+		};
 		4430C95E2BF1A5BB00DB4F04 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -915,6 +959,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4408ECD92BF33E8E007D21A4 /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4408ECD82BF33E8E007D21A4 /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
+		};
 		4430C95F2BF1A5BB00DB4F04 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4430C95E2BF1A5BB00DB4F04 /* XCRemoteSwiftPackageReference "Alamofire" */;

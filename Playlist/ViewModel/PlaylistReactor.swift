@@ -8,9 +8,16 @@
 import RxSwift
 import ReactorKit
 
+enum SectionType: String, CaseIterable {
+    case rankChart
+    case genreNTheme
+    case audio
+    case video
+}
+
 class PlaylistReactor: Reactor {
     enum Action {
-        case loadPlaylist(PlaylistData)
+        case loadPlaylist
         case selectSongData(SongData)
     }
     
@@ -30,8 +37,8 @@ class PlaylistReactor: Reactor {
 extension PlaylistReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .loadPlaylist(let playlist):
-            return Observable.just(Mutation.setPlayList(playlist))
+        case .loadPlaylist:
+            return fetchPlaylist()
         case .selectSongData(let songData):
             return Observable.just(Mutation.fetchSongData(songData))
         }
@@ -52,17 +59,19 @@ extension PlaylistReactor {
 }
 
 extension PlaylistReactor {
-    @MainActor
-    private func fetchPlaylist() -> Observable<Mutation> {
+    func fetchPlaylist() -> Observable<Mutation> {
         return Observable<Mutation>.create { observer in
-            Task {
-                let playlist = try await NetworkAPIManager.fetchPlayList()
+            NetworkAPIManager.fetchPlayList { playlist in
                 observer.onNext(.setPlayList(playlist))
                 observer.onCompleted()
+            } onFailure: { error in
+                observer.onError(error)
             }
-//            print("fetchPlaylist Error: \(error)")
-//            observer.onError(error)
             return Disposables.create()
         }
+    }
+    
+    func fetchSongData() {
+        
     }
 }

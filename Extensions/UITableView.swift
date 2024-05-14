@@ -59,6 +59,14 @@ extension NibLoadable {
     static var nibNm: String {
         return "\(self)"
     }
+    
+    static var screen: UIScreen? {
+        guard let window = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+//            return Self.window?.windowScene?.screen
+            return UIScreen()
+        }
+        return window.screen
+    }
 }
 
 extension UITableView {

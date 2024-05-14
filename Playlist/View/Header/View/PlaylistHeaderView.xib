@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaylistHeaderView" customModule="Playlist" customModuleProvider="target">
             <connections>
-                <outlet property="collectionVIewHeightConst" destination="eb7-Zf-ZsV" id="9Tr-7f-3QI"/>
                 <outlet property="collectionView" destination="iXL-ZZ-r8N" id="DWI-em-ffF"/>
             </connections>
         </placeholder>
@@ -21,9 +20,6 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iXL-ZZ-r8N">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="eb7-Zf-ZsV"/>
-                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UZ8-fU-xgf">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
