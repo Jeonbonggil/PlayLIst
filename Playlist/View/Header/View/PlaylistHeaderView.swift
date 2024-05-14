@@ -9,7 +9,8 @@ import UIKit
 
 class PlaylistHeaderView: UIView, NibLoadable, ReusableView {
     private struct DrawingConstants {
-        static let size = CGSize(width: 80.0, height: 80.0)
+        static let size = CGSize(width: 80.0, height: height)
+        static let height = 30.0
         static let inset = UIEdgeInsets(top: 0.0, left: 15.0, bottom: 0.0, right: 15.0)
         static let spacing: CGFloat = 15.0
     }
@@ -24,6 +25,18 @@ class PlaylistHeaderView: UIView, NibLoadable, ReusableView {
         }
     }
     @IBOutlet weak var collectionVIewHeightConst: NSLayoutConstraint!
+    var headerTitles: [String] = []
+    var selectedIndex = 0
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        fromNib()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        fromNib()
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,20 +50,22 @@ extension PlaylistHeaderView: UICollectionViewDelegate, UICollectionViewDataSour
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 4
+        return headerTitles.count
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
+        let index = indexPath.row
         let cell: PlaylistHeaderCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.configureCell()
+        cell.configureCell(headerTitles, index, selectedIndex)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        selectedIndex = indexPath.row
+        collectionView.reloadData()
     }
 }
 
@@ -70,8 +85,11 @@ extension PlaylistHeaderView: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        var labelWidth: CGFloat = 0.0
-        return CGSize(width: 40, height: 40)
+        let insets = DrawingConstants.inset.left + DrawingConstants.inset.right + 5.0
+        let title = headerTitles[indexPath.row]
+        let width = title.widthOfString(usingFont: .systemFont(ofSize: 13)) + insets
+        let height = DrawingConstants.height
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(

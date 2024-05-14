@@ -11,7 +11,11 @@ import RxSwift
 import ReactorKit
 
 class PlaylistViewController: UIViewController, View {
-    @IBOutlet weak var headerView: PlaylistHeaderView!
+    @IBOutlet weak var headerView: PlaylistHeaderView! {
+        didSet {
+            headerView.headerTitles = sectionTitles
+        }
+    }
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self

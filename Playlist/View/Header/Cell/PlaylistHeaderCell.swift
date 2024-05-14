@@ -13,10 +13,15 @@ class PlaylistHeaderCell: UICollectionViewCell, ReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        bgView.layer.cornerRadius = 10
+        bgView.layer.cornerRadius = 15
     }
     
-    func configureCell() {
-        headerTitle.text = "차트"
+    func configureCell(_ title: [String], _ currentIndex: Int, _ selectedIndex: Int) {
+        headerTitle.text = title[currentIndex]
+        selectedCell(currentIndex == selectedIndex)
+    }
+    
+    private func selectedCell(_ isSelected: Bool) {
+        bgView.backgroundColor = isSelected ? .blue : .gray
     }
 }

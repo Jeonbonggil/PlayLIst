@@ -22,8 +22,8 @@
                         <color key="backgroundColor" systemColor="linkColor"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpO-hA-Fbv">
-                        <rect key="frame" x="15" y="15.666666666666664" width="106" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="10" y="18.333333333333332" width="116" height="15.666666666666668"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -32,14 +32,14 @@
                     <constraint firstItem="tB5-pP-Gwr" firstAttribute="top" secondItem="Rlc-Z3-QZp" secondAttribute="top" id="3eu-x0-CUX"/>
                     <constraint firstAttribute="trailing" secondItem="tB5-pP-Gwr" secondAttribute="trailing" id="Inj-FN-Rva"/>
                     <constraint firstItem="tB5-pP-Gwr" firstAttribute="leading" secondItem="Rlc-Z3-QZp" secondAttribute="leading" id="JSH-8V-duL"/>
-                    <constraint firstAttribute="trailing" secondItem="TpO-hA-Fbv" secondAttribute="trailing" constant="15" id="PcT-hu-v5j"/>
+                    <constraint firstAttribute="trailing" secondItem="TpO-hA-Fbv" secondAttribute="trailing" constant="10" id="PcT-hu-v5j"/>
                     <constraint firstItem="tB5-pP-Gwr" firstAttribute="top" secondItem="Rlc-Z3-QZp" secondAttribute="top" id="edJ-2U-Xq5"/>
                     <constraint firstAttribute="trailing" secondItem="tB5-pP-Gwr" secondAttribute="trailing" id="i95-Ib-Yoj"/>
                     <constraint firstItem="tB5-pP-Gwr" firstAttribute="leading" secondItem="Rlc-Z3-QZp" secondAttribute="leading" id="kUr-nd-qaU"/>
                     <constraint firstAttribute="bottom" secondItem="tB5-pP-Gwr" secondAttribute="bottom" id="qhY-Ha-NuD"/>
                     <constraint firstItem="TpO-hA-Fbv" firstAttribute="centerY" secondItem="Rlc-Z3-QZp" secondAttribute="centerY" id="tHb-hj-xqG"/>
                     <constraint firstAttribute="bottom" secondItem="tB5-pP-Gwr" secondAttribute="bottom" id="x8M-Un-2wC"/>
-                    <constraint firstItem="TpO-hA-Fbv" firstAttribute="leading" secondItem="Rlc-Z3-QZp" secondAttribute="leading" constant="15" id="y3e-5v-aQh"/>
+                    <constraint firstItem="TpO-hA-Fbv" firstAttribute="leading" secondItem="Rlc-Z3-QZp" secondAttribute="leading" constant="10" id="y3e-5v-aQh"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="136" height="52"/>
