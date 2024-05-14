@@ -191,7 +191,6 @@
 				44C70DF22BF1B6C8004A87A2 /* ViewModel */,
 				4430C92E2BF1A22C00DB4F04 /* AppDelegate.swift */,
 				4430C9302BF1A22C00DB4F04 /* SceneDelegate.swift */,
-				4430C9342BF1A22C00DB4F04 /* Main.storyboard */,
 				4430C9372BF1A22E00DB4F04 /* Assets.xcassets */,
 				4430C9392BF1A22E00DB4F04 /* LaunchScreen.storyboard */,
 				4430C93C2BF1A22E00DB4F04 /* Info.plist */,
@@ -272,6 +271,7 @@
 				44C70E112BF1D2AA004A87A2 /* Chart */,
 				44C70DFF2BF1BA68004A87A2 /* Header */,
 				4430C9322BF1A22C00DB4F04 /* PlaylistViewController.swift */,
+				4430C9342BF1A22C00DB4F04 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
