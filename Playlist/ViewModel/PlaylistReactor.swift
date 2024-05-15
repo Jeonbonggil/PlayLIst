@@ -8,26 +8,29 @@
 import RxSwift
 import ReactorKit
 
-enum SectionType: String, CaseIterable {
+enum SectionType: Int, CaseIterable {
     case rankChart
-    case genreNTheme
-    case audio
-    case video
+    case sectionList
+    case categoryList
+    case videoList
 }
 
-class PlaylistReactor: Reactor {
+final class PlaylistReactor: Reactor {
     enum Action {
+        case headerIndex(Int)
         case loadPlaylist
         case selectSongData(SongData)
     }
     
     enum Mutation {
+        case sendHeaderIndex(Int)
         case setPlayList(PlaylistData)
         case fetchSongData(SongData)
     }
     
     struct State {
-        var playList: PlaylistData?
+        var headerIndex: Int?
+        var playList: ListData?
         var songData: SongData?
     }
     
@@ -37,28 +40,39 @@ class PlaylistReactor: Reactor {
 extension PlaylistReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
+        case .headerIndex(let index):
+            return selectHeaderIndex(at: index)
         case .loadPlaylist:
             return fetchPlaylist()
         case .selectSongData(let songData):
             return Observable.just(Mutation.fetchSongData(songData))
         }
     }
-}
-    
-extension PlaylistReactor {
-    func reduce(state: State, mutate: Mutation) -> State {
+
+    func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
-        switch mutate {
+        switch mutation {
+        case .sendHeaderIndex(let index):
+            newState.headerIndex = index
         case .setPlayList(let playlist):
-            newState.playList = playlist
+            newState.playList = playlist.data
         case .fetchSongData(let songData):
             newState.songData = songData
+        
         }
         return newState
     }
 }
 
-extension PlaylistReactor {
+private extension PlaylistReactor {
+    func selectHeaderIndex(at index: Int) -> Observable<Mutation> {
+        return Observable<Mutation>.create { observer in
+            observer.onNext(.sendHeaderIndex(index))
+            observer.onCompleted()
+            return Disposables.create()
+        }
+    }
+    
     func fetchPlaylist() -> Observable<Mutation> {
         return Observable<Mutation>.create { observer in
             NetworkAPIManager.fetchPlayList { playlist in
@@ -71,7 +85,15 @@ extension PlaylistReactor {
         }
     }
     
-    func fetchSongData() {
-        
+    func fetchSongData(trackId: String) -> Observable<Mutation> {
+        return Observable<Mutation>.create { observer in
+            NetworkAPIManager.fetchSongData(trackID: trackId) { songData in
+                observer.onNext(.fetchSongData(songData))
+                observer.onCompleted()
+            } onFailure: { error in
+                observer.onError(error)
+            }
+            return Disposables.create()
+        }
     }
 }

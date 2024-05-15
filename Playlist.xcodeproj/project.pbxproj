@@ -75,6 +75,10 @@
 		FC8DF25F2BF39C6100AAE388 /* VideoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8DF25E2BF39C6100AAE388 /* VideoTableCell.xib */; };
 		FC8DF2632BF39DA200AAE388 /* VideoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DF2622BF39DA200AAE388 /* VideoItemCell.swift */; };
 		FC8DF2652BF39DA700AAE388 /* VideoItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8DF2642BF39DA700AAE388 /* VideoItemCell.xib */; };
+		FC8DF2672BF3A24600AAE388 /* ChartReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DF2662BF3A24600AAE388 /* ChartReactor.swift */; };
+		FC8DF2692BF3A2D000AAE388 /* SectionReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DF2682BF3A2D000AAE388 /* SectionReactor.swift */; };
+		FC8DF26B2BF3A2F600AAE388 /* CategoryReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DF26A2BF3A2F600AAE388 /* CategoryReactor.swift */; };
+		FC8DF26D2BF3A32700AAE388 /* VideoReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8DF26C2BF3A32700AAE388 /* VideoReactor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +163,10 @@
 		FC8DF25E2BF39C6100AAE388 /* VideoTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableCell.xib; sourceTree = "<group>"; };
 		FC8DF2622BF39DA200AAE388 /* VideoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItemCell.swift; sourceTree = "<group>"; };
 		FC8DF2642BF39DA700AAE388 /* VideoItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoItemCell.xib; sourceTree = "<group>"; };
+		FC8DF2662BF3A24600AAE388 /* ChartReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartReactor.swift; sourceTree = "<group>"; };
+		FC8DF2682BF3A2D000AAE388 /* SectionReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionReactor.swift; sourceTree = "<group>"; };
+		FC8DF26A2BF3A2F600AAE388 /* CategoryReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryReactor.swift; sourceTree = "<group>"; };
+		FC8DF26C2BF3A32700AAE388 /* VideoReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoReactor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +312,10 @@
 			isa = PBXGroup;
 			children = (
 				44C70DF32BF1B6D6004A87A2 /* PlaylistReactor.swift */,
+				FC8DF2662BF3A24600AAE388 /* ChartReactor.swift */,
+				FC8DF2682BF3A2D000AAE388 /* SectionReactor.swift */,
+				FC8DF26A2BF3A2F600AAE388 /* CategoryReactor.swift */,
+				FC8DF26C2BF3A32700AAE388 /* VideoReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -572,6 +584,8 @@
 				44C70DE72BF1B034004A87A2 /* TrackList.swift in Sources */,
 				44C70DE52BF1B034004A87A2 /* SongData.swift in Sources */,
 				44C70DDF2BF1B034004A87A2 /* ListData.swift in Sources */,
+				FC8DF26D2BF3A32700AAE388 /* VideoReactor.swift in Sources */,
+				FC8DF26B2BF3A2F600AAE388 /* CategoryReactor.swift in Sources */,
 				44C70DEE2BF1B034004A87A2 /* PlaylistData.swift in Sources */,
 				4408ECC82BF1F4FE007D21A4 /* UITableView.swift in Sources */,
 				FC7231E62BF4C1D3002F84BC /* CategoryTableCell.swift in Sources */,
@@ -590,6 +604,8 @@
 				44C70DEB2BF1B034004A87A2 /* VideoList.swift in Sources */,
 				FC7231DE2BF4877F002F84BC /* ChartFooterView.swift in Sources */,
 				44C70DEC2BF1B034004A87A2 /* List.swift in Sources */,
+				FC8DF2672BF3A24600AAE388 /* ChartReactor.swift in Sources */,
+				FC8DF2692BF3A2D000AAE388 /* SectionReactor.swift in Sources */,
 				4430C9312BF1A22C00DB4F04 /* SceneDelegate.swift in Sources */,
 				44C70DCE2BF1ACEE004A87A2 /* NetworkAPIManager.swift in Sources */,
 				4408ECC22BF1F4EC007D21A4 /* View+AutoLayout.swift in Sources */,

@@ -37,13 +37,18 @@ final class PlaylistViewController: UIViewController, StoryboardView {
         }
     }
     private let sectionTitles = ["차트", "장르/테마", "오디오", "비디오"]
-    var reactor = PlaylistReactor()
+    private var mainReactor = PlaylistReactor()
+    private var chartReactor: ChartReactor?
+    private var sectionReactor: SectionReactor?
+    private var categoryReactor: CategoryReactor?
+    private var videoReactor: VideoReactor?
+    private var playlistData: ListData?
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind(reactor: reactor)
-        reactor.action.onNext(.loadPlaylist)
+        bind(reactor: mainReactor)
+        mainReactor.action.onNext(.loadPlaylist)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,9 +59,15 @@ final class PlaylistViewController: UIViewController, StoryboardView {
         reactor.state
             .map { $0.playList }
             .filter { $0 != nil }
+            .observe(on: MainScheduler.instance)
             .subscribe { [weak self] list in
-                print("Playlist Data: \(String(describing: list))")
-                self?.tableView.reloadData()
+                guard let self, let data = list.element?.flatMap({ $0 }) else { return }
+                playlistData = data
+                chartReactor = ChartReactor(chartList: data.chartList)
+                sectionReactor = SectionReactor(sectionList: data.sectionList)
+                categoryReactor = CategoryReactor(categoryList: data.programCategoryList)
+                videoReactor = VideoReactor(videoPlayList: data.videoPlayList)
+                tableView.reloadData()
             }
             .disposed(by: disposeBag)
         
@@ -110,21 +121,23 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         switch sectionType {
         case .rankChart:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ChartTableCell
-            cell.selectionStyle = .none
+            cell.reactor = chartReactor
             return cell
-        case .genreNTheme:
-            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ChartTableCell
-            cell.selectionStyle = .none
+        case .sectionList:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as SectionTableCell
+            cell.index = indexPath.row
+            cell.reactor = sectionReactor
             return cell
-        case .audio:
-            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ChartTableCell
-            cell.selectionStyle = .none
+        case .categoryList:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CategoryTableCell
+            cell.reactor = categoryReactor
             return cell
-        case .video:
-            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ChartTableCell
-            cell.selectionStyle = .none
+        case .videoList:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as VideoTableCell
+            cell.reactor = videoReactor
             return cell
         }
-        
+    }
+}
     }
 }
