@@ -9,3 +9,9 @@ struct SectionList : Decodable {
 	let shortcutList : [ShortcutList]?
 	let type : String
 }
+
+extension SectionList {
+    var shortcutCount: Int {
+        return shortcutList?.count ?? 0
+    }
+}

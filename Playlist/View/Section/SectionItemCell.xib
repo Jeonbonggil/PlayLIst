@@ -9,15 +9,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GenreItemCell" id="RHC-17-Prb" customClass="GenreItemCell" customModule="Playlist" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionItemCell" id="RHC-17-Prb" customClass="SectionItemCell" customModule="Playlist" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="163" height="107"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QbY-Pi-Qkb">
                 <rect key="frame" x="0.0" y="0.0" width="163" height="107"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kingfisher-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zcs-xT-xFd">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zcs-xT-xFd">
                         <rect key="frame" x="0.0" y="0.0" width="163" height="107"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="0.62745098040000002" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bz4-bK-TMz">
                         <rect key="frame" x="10" y="10" width="143" height="21"/>
@@ -44,7 +45,4 @@
             <point key="canvasLocation" x="225.19083969465649" y="40.492957746478872"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="kingfisher-1.jpg" width="250" height="250"/>
-    </resources>
 </document>

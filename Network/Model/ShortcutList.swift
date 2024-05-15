@@ -10,3 +10,10 @@ struct ShortcutList : Decodable {
 	let name : String
 	let type : String
 }
+
+extension ShortcutList {
+    var imgListURL: URL {
+        guard let url = imgList.first?.url else { return URL(string: "")! }
+        return URL(string: url)!
+    }
+}

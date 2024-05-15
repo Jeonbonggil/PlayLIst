@@ -6,66 +6,102 @@
 //
 
 import UIKit
+import ReactorKit
 import RxSwift
 import RxCocoa
 import RxGesture
 /**
  ## 설명
- * <# 요약 #>
+ * Shortcut Section Table Cell
  
  ## 기본정보
  * Note: APP
  * See: <# 제플린 없음 #>
  */
-class GenreTableCell: UITableViewCell, ReusableView, NibLoadable {
+class SectionTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable {
+    private struct DrawingConstants {
+        static let size = CGSize(width: width, height: height)
+        static let width = (SectionTableCell().screen?.bounds.width ?? 0) / 2 - inset.left - spacing / 2
+        static let inset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        static let spacing = 15.0
+        static let height = 86.0
+    }
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
-            collectionView.registerCellNibForClass(GenreItemCell.self)
+            collectionView.registerCellNibForClass(SectionItemCell.self)
         }
     }
+    @IBOutlet weak var typeName: UILabel!
     @IBOutlet weak var collectionViewHeightConst: NSLayoutConstraint!
+    var reactor: SectionReactor? {
+        didSet {
+            guard let reactor else { return }
+            bind(reactor: reactor)
+        }
+    }
+    private var sectionList: SectionList?
+    var index = 0
+    var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
+    func bind(reactor: SectionReactor) {
+        reactor.state
+            .map { $0.sectionList }
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] list in
+                guard let self, let list = list.element?.flatMap({ $0 }) else { return }
+                sectionList = list[index]
+                typeName.text = sectionList?.name
+                let count = sectionList?.shortcutCount ?? 0
+                collectionViewHeightConst.constant =
+                DrawingConstants.height * (Double(count / 2) + (count % 2 == 0 ? 0 : 1)) +
+                DrawingConstants.spacing * (Double(count / 2) + (count % 2 == 0 ? 0 : 1))
+                collectionView.reloadData()
+            }
+            .disposed(by: disposeBag)
     }
 }
 
 //MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 
-extension GenreTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
+extension SectionTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 1
+        return sectionList?.shortcutCount ?? 0
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as GenreItemCell
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as SectionItemCell
+        guard let list = sectionList?.shortcutList?[indexPath.row] else { return UICollectionViewCell() }
+        cell.configureCellForShortcut(list)
         return cell
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        didSelectItemAt indexPath: IndexPath
-    ) {
-        
     }
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
-extension GenreTableCell: UICollectionViewDelegateFlowLayout {
+
+extension SectionTableCell: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return .zero
+        return DrawingConstants.size
     }
     
     func collectionView(
@@ -73,7 +109,7 @@ extension GenreTableCell: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         minimumInteritemSpacingForSectionAt section: Int
     ) -> CGFloat {
-        return 10
+        return DrawingConstants.spacing
     }
     
     func collectionView(
@@ -81,7 +117,15 @@ extension GenreTableCell: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAt section: Int
     ) -> CGFloat {
-        return 10
+        return DrawingConstants.spacing
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
+        return DrawingConstants.inset
     }
 }
 
