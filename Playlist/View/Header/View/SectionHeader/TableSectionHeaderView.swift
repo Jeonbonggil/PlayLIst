@@ -5,4 +5,16 @@
 //  Created by Bonggil Jeon on 5/15/24.
 //
 
-import Foundation
+import UIKit
+
+class TableSectionHeaderView: UITableViewHeaderFooterView, NibLoadable {
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    func configure(title: String) {
+        titleLabel.text = title
+    }
+}
