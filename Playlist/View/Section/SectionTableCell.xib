@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1Gd-Uv-bsI">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenreTableCell" rowHeight="119" id="1Gd-Uv-bsI" customClass="GenreTableCell" customModule="Playlist" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="119"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Gd-Uv-bsI" id="bGg-wo-g1F">
-                <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="393" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장르" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb7-mK-aQF">
+                        <rect key="frame" x="10" y="10" width="373" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="glO-TY-0Zw">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                        <rect key="frame" x="0.0" y="39" width="393" height="80"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="dy5-wI-66o"/>
@@ -31,13 +37,20 @@
                     </collectionView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="kb7-mK-aQF" secondAttribute="trailing" constant="10" id="8n6-dy-fAg"/>
                     <constraint firstAttribute="bottom" secondItem="glO-TY-0Zw" secondAttribute="bottom" priority="900" id="AJ6-Lr-4aI"/>
+                    <constraint firstItem="glO-TY-0Zw" firstAttribute="top" secondItem="kb7-mK-aQF" secondAttribute="bottom" constant="8" symbolic="YES" id="CpS-01-y0P"/>
                     <constraint firstItem="glO-TY-0Zw" firstAttribute="leading" secondItem="bGg-wo-g1F" secondAttribute="leading" id="Gdp-Qx-Jer"/>
+                    <constraint firstItem="kb7-mK-aQF" firstAttribute="leading" secondItem="bGg-wo-g1F" secondAttribute="leading" constant="10" id="JoG-nT-Qmz"/>
                     <constraint firstAttribute="trailing" secondItem="glO-TY-0Zw" secondAttribute="trailing" id="Zpf-sd-OE8"/>
-                    <constraint firstItem="glO-TY-0Zw" firstAttribute="top" secondItem="bGg-wo-g1F" secondAttribute="top" id="gnu-Yl-LvA"/>
+                    <constraint firstItem="kb7-mK-aQF" firstAttribute="top" secondItem="bGg-wo-g1F" secondAttribute="top" constant="10" id="o8P-aa-wlA"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="159.54198473282443" y="-48.943661971830991"/>
+            <connections>
+                <outlet property="collectionView" destination="glO-TY-0Zw" id="TtN-xY-XNs"/>
+                <outlet property="collectionViewHeightConst" destination="dy5-wI-66o" id="gyF-QM-20j"/>
+            </connections>
+            <point key="canvasLocation" x="159.54198473282443" y="-35.563380281690144"/>
         </tableViewCell>
     </objects>
     <resources>

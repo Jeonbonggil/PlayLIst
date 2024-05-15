@@ -11,6 +11,9 @@ import RxSwift
 import ReactorKit
 
 final class PlaylistViewController: UIViewController, StoryboardView {
+    private struct DrawingConstants {
+        static let sectionHeaderHeight = 40.0
+    }
     @IBOutlet weak var headerView: PlaylistHeaderView! {
         didSet {
             headerView.headerTitles = sectionTitles
@@ -22,7 +25,15 @@ final class PlaylistViewController: UIViewController, StoryboardView {
             tableView.dataSource = self
             tableView.separatorInset = .zero
             tableView.separatorStyle = .none
+            tableView.sectionHeaderTopPadding = 0
+            tableView.register(
+                UINib(nibName: TableSectionHeaderView.nibNm, bundle: .main),
+                forHeaderFooterViewReuseIdentifier: TableSectionHeaderView.nibNm
+            )
             tableView.register(ChartTableCell.self)
+            tableView.register(SectionTableCell.self)
+            tableView.register(CategoryTableCell.self)
+            tableView.register(VideoTableCell.self)
         }
     }
     private let sectionTitles = ["차트", "장르/테마", "오디오", "비디오"]
@@ -64,24 +75,28 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         return SectionType.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitles[section]
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard SectionType.allCases[section] != .sectionList else { return nil }
+        let view = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: TableSectionHeaderView.nibNm
+        ) as? TableSectionHeaderView
+        view?.configure(title: sectionTitles[section])
+        return view
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return DrawingConstants.sectionHeaderHeight
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let playlistData else { return 0 }
         let sectionType = SectionType.allCases[section]
         switch sectionType {
         case .rankChart:
-            return 1
-        case .genreNTheme:
-            return 1
-        case .audio:
-            return 1
-        case .video:
+            return playlistData.chartListCount
+        case .sectionList:
+            return playlistData.sectionListCount
+        case .categoryList, .videoList:
             return 1
         }
     }

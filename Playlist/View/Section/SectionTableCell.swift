@@ -22,9 +22,10 @@ class GenreTableCell: UITableViewCell, ReusableView, NibLoadable {
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
-            collectionView.registerCellNibForClass(.self)
+            collectionView.registerCellNibForClass(GenreItemCell.self)
         }
     }
+    @IBOutlet weak var collectionViewHeightConst: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,7 +46,7 @@ extension GenreTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as GenreItemCell
         return cell
     }
     
@@ -53,7 +54,7 @@ extension GenreTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        <#code#>
+        
     }
 }
 
@@ -64,7 +65,7 @@ extension GenreTableCell: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        <#code#>
+        return .zero
     }
     
     func collectionView(
@@ -72,7 +73,7 @@ extension GenreTableCell: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         minimumInteritemSpacingForSectionAt section: Int
     ) -> CGFloat {
-        <#code#>
+        return 10
     }
     
     func collectionView(
@@ -80,7 +81,7 @@ extension GenreTableCell: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAt section: Int
     ) -> CGFloat {
-        <#code#>
+        return 10
     }
 }
 
