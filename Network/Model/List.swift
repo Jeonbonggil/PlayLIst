@@ -6,7 +6,7 @@ import Foundation
 
 struct List: Decodable {
 	let displayTitle: String
-	let imgUrl: String
+	let imgUrl: String?
 	let programCategoryId: Int
 	let programCategoryType: String
 }

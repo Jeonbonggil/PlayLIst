@@ -6,6 +6,6 @@ import Foundation
 
 struct SectionList : Decodable {
 	let name : String
-	let shortcutList : [ShortcutList]
+	let shortcutList : [ShortcutList]?
 	let type : String
 }

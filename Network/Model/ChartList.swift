@@ -6,7 +6,7 @@ import Foundation
 
 struct ChartList: Decodable {
 	let basedOnUpdate: String
-	let descriptionField: String
+	let description: String
 	let id: Int
 	let name: String
 	let totalCount: Int

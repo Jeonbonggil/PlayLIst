@@ -5,8 +5,8 @@
 import Foundation
 
 struct VideoPlayList: Decodable {
-	let descriptionField: String
-	let id: String
+	let description: String
+	let id: String?
 	let name: String
 	let type: String
 	let videoList: [VideoList]

@@ -28,7 +28,7 @@ final public class NetworkAPIManager {
             switch result {
             case let .success(response):
                 do {
-                    let responseObject = try response.map(ResponseObject.self)
+                    let responseObject = try response.map(responseObject.self)
                     success(responseObject)
                 } catch {
                     failure(.decodeError(response.description))
