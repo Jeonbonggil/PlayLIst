@@ -10,3 +10,10 @@ struct List: Decodable {
 	let programCategoryId: Int
 	let programCategoryType: String
 }
+
+extension List {
+    var imgListURL: URL {
+        guard let imgUrl else { return URL(string: "")! }
+        return URL(string: imgUrl)!
+    }
+}
