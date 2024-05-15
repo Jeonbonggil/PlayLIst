@@ -20,6 +20,6 @@ extension ChartList {
     }
     
     func desc() -> String {
-        return descriptionField
+        return description
     }
 }

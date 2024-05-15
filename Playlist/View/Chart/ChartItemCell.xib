@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChartItemListCell" rowHeight="60" id="adO-7Z-oCg" customClass="ChartItemListCell" customModule="Playlist" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="275" height="60"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="adO-7Z-oCg" id="59w-vk-9Gx">
-                <rect key="frame" x="0.0" y="0.0" width="275" height="60"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChartItemCell" id="JCu-aJ-xBc" customClass="ChartItemCell" customModule="Playlist" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="277" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Bzv-Uf-XrE">
+                <rect key="frame" x="0.0" y="0.0" width="277" height="42"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kingfisher-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fMA-T8-iJ7">
@@ -31,40 +32,41 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtO-LQ-tRq">
-                        <rect key="frame" x="71" y="2.9999999999999991" width="194" height="15.666666666666664"/>
+                        <rect key="frame" x="71" y="0.0" width="196" height="15.666666666666666"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Desc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAL-fT-IPr">
-                        <rect key="frame" x="71" y="20.666666666666668" width="194" height="12.000000000000004"/>
+                        <rect key="frame" x="71" y="19.666666666666668" width="195" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" systemColor="systemGray2Color"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="vAL-fT-IPr" firstAttribute="leading" secondItem="TtO-LQ-tRq" secondAttribute="leading" id="3Mi-PB-tYx"/>
-                    <constraint firstItem="vAL-fT-IPr" firstAttribute="top" secondItem="TtO-LQ-tRq" secondAttribute="bottom" constant="2" id="5t9-0Q-uYO"/>
-                    <constraint firstAttribute="bottom" secondItem="fMA-T8-iJ7" secondAttribute="bottom" constant="20" id="En2-EO-4Le"/>
-                    <constraint firstItem="fMA-T8-iJ7" firstAttribute="leading" secondItem="59w-vk-9Gx" secondAttribute="leading" id="Xex-4h-0et"/>
-                    <constraint firstItem="TtO-LQ-tRq" firstAttribute="leading" secondItem="Cwe-3s-M1q" secondAttribute="trailing" constant="15" id="ZTH-yo-xzC"/>
-                    <constraint firstItem="Cwe-3s-M1q" firstAttribute="centerY" secondItem="fMA-T8-iJ7" secondAttribute="centerY" id="ZWq-DT-wXz"/>
-                    <constraint firstItem="TtO-LQ-tRq" firstAttribute="top" secondItem="fMA-T8-iJ7" secondAttribute="top" constant="3" id="bYV-BK-LS4"/>
-                    <constraint firstAttribute="trailing" secondItem="TtO-LQ-tRq" secondAttribute="trailing" constant="10" id="hbA-6X-emh"/>
-                    <constraint firstItem="fMA-T8-iJ7" firstAttribute="top" secondItem="59w-vk-9Gx" secondAttribute="top" id="mPq-1e-2FL"/>
-                    <constraint firstAttribute="trailing" secondItem="vAL-fT-IPr" secondAttribute="trailing" constant="10" id="mxJ-jv-OoP"/>
-                    <constraint firstItem="Cwe-3s-M1q" firstAttribute="leading" secondItem="fMA-T8-iJ7" secondAttribute="trailing" constant="10" id="wTT-GG-F1D"/>
+                    <constraint firstItem="fMA-T8-iJ7" firstAttribute="leading" secondItem="Bzv-Uf-XrE" secondAttribute="leading" id="ApF-dw-nY5"/>
+                    <constraint firstItem="Cwe-3s-M1q" firstAttribute="centerY" secondItem="fMA-T8-iJ7" secondAttribute="centerY" id="Csh-9D-cb4"/>
+                    <constraint firstItem="vAL-fT-IPr" firstAttribute="top" secondItem="TtO-LQ-tRq" secondAttribute="bottom" constant="4" id="Epe-7n-03d"/>
+                    <constraint firstAttribute="bottom" secondItem="fMA-T8-iJ7" secondAttribute="bottom" priority="900" id="JgT-YX-RQg"/>
+                    <constraint firstItem="fMA-T8-iJ7" firstAttribute="top" secondItem="Bzv-Uf-XrE" secondAttribute="top" id="Myj-Pm-3CA"/>
+                    <constraint firstAttribute="trailing" secondItem="vAL-fT-IPr" secondAttribute="trailing" constant="11" id="PDU-nG-fwB"/>
+                    <constraint firstItem="TtO-LQ-tRq" firstAttribute="leading" secondItem="Cwe-3s-M1q" secondAttribute="trailing" constant="15" id="XEa-Hj-QmL"/>
+                    <constraint firstAttribute="trailing" secondItem="TtO-LQ-tRq" secondAttribute="trailing" constant="10" id="YVd-iN-Lbo"/>
+                    <constraint firstItem="TtO-LQ-tRq" firstAttribute="top" secondItem="fMA-T8-iJ7" secondAttribute="top" id="fZj-JJ-cDt"/>
+                    <constraint firstItem="vAL-fT-IPr" firstAttribute="leading" secondItem="Cwe-3s-M1q" secondAttribute="trailing" constant="15" id="jKK-un-ih8"/>
+                    <constraint firstItem="Cwe-3s-M1q" firstAttribute="leading" secondItem="fMA-T8-iJ7" secondAttribute="trailing" constant="10" id="sKN-nj-FAK"/>
                 </constraints>
-            </tableViewCellContentView>
+            </collectionViewCellContentView>
+            <size key="customSize" width="277" height="42"/>
             <connections>
-                <outlet property="coverImage" destination="fMA-T8-iJ7" id="XiL-kT-W3K"/>
-                <outlet property="rankLabel" destination="Cwe-3s-M1q" id="jW8-iA-HGH"/>
-                <outlet property="songDesc" destination="vAL-fT-IPr" id="vCG-sE-vv8"/>
-                <outlet property="songTitle" destination="TtO-LQ-tRq" id="SFp-NR-j8f"/>
+                <outlet property="rankLabel" destination="Cwe-3s-M1q" id="dxc-dQ-aTq"/>
+                <outlet property="songDesc" destination="vAL-fT-IPr" id="1Do-Ab-1zN"/>
+                <outlet property="songTitle" destination="TtO-LQ-tRq" id="LPp-GR-uGu"/>
+                <outlet property="thumbnail" destination="fMA-T8-iJ7" id="Anc-gz-J9i"/>
             </connections>
-            <point key="canvasLocation" x="-43.511450381679388" y="-144.71830985915494"/>
-        </tableViewCell>
+            <point key="canvasLocation" x="-45.038167938931295" y="-90.140845070422543"/>
+        </collectionViewCell>
     </objects>
     <resources>
         <image name="kingfisher-1.jpg" width="250" height="250"/>
