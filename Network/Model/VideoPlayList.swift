@@ -11,3 +11,14 @@ struct VideoPlayList: Decodable {
 	let type: String
 	let videoList: [VideoList]
 }
+
+extension VideoPlayList {
+    var listCount: Int {
+        return videoList.count - 1
+    }
+    
+    var listFromSecond: [VideoList] {
+        let videoList = videoList.dropFirst().map { $0 }
+        return videoList
+    }
+}

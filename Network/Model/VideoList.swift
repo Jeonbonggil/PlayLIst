@@ -11,3 +11,14 @@ struct VideoList: Decodable {
 	let thumbnailImageList: [ThumbnailImageList]
 	let videoNm: String
 }
+
+extension VideoList {
+    var thumbnailURL: URL {
+        guard let url = thumbnailImageList.first?.url else { return URL(string: "")! }
+        return URL(string: url)!
+    }
+    
+    var artistName: String {
+        return representationArtist.name
+    }
+}
