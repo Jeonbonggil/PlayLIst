@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import ReactorKit
 
-class PlaylistHeaderView: UIView, NibLoadable, ReusableView {
+class PlaylistHeaderView: UIView, StoryboardView, NibLoadable, ReusableView {
     private struct DrawingConstants {
         static let size = CGSize(width: 80.0, height: height)
         static let height = 30.0
         static let inset = UIEdgeInsets(top: 0.0, left: 15.0, bottom: 0.0, right: 15.0)
-        static let spacing: CGFloat = 15.0
+        static let spacing: CGFloat = 10.0
     }
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -25,8 +26,15 @@ class PlaylistHeaderView: UIView, NibLoadable, ReusableView {
         }
     }
     @IBOutlet weak var collectionVIewHeightConst: NSLayoutConstraint!
+    var reactor: PlaylistReactor? {
+        didSet {
+            guard let reactor else { return }
+            bind(reactor: reactor)
+        }
+    }
     var headerTitles: [String] = []
     var selectedIndex = 0
+    var disposeBag = DisposeBag()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -40,6 +48,10 @@ class PlaylistHeaderView: UIView, NibLoadable, ReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func bind(reactor: PlaylistReactor) {
+        
     }
 }
 
@@ -66,6 +78,7 @@ extension PlaylistHeaderView: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         collectionView.reloadData()
+        reactor?.action.onNext(.headerIndex(selectedIndex))
     }
 }
 
@@ -98,13 +111,5 @@ extension PlaylistHeaderView: UICollectionViewDelegateFlowLayout {
         minimumInteritemSpacingForSectionAt section: Int
     ) -> CGFloat {
         return DrawingConstants.spacing
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        minimumLineSpacingForSectionAt section: Int
-    ) -> CGFloat {
-        return 0
     }
 }

@@ -56,6 +56,19 @@ final class PlaylistViewController: UIViewController, StoryboardView {
     }
     
     func bind(reactor: PlaylistReactor) {
+        headerView.reactor = reactor
+        reactor.state
+            .map { $0.headerIndex }
+            .filter { $0 != nil }
+            .distinctUntilChanged()
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] index in
+                guard let self, let index = index.element?.flatMap({ $0 }) else { return }
+                let indexPath = IndexPath(row: 0, section: index)
+                tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
         reactor.state
             .map { $0.playList }
             .filter { $0 != nil }
@@ -139,5 +152,14 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+extension PlaylistViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let indexPaths = tableView.indexPathsForVisibleRows,
+            let firstIndexPath = indexPaths.first {
+            let section = firstIndexPath.section
+            headerView.selectedIndex = section
+            headerView.collectionView.reloadData()
+        }
     }
 }
