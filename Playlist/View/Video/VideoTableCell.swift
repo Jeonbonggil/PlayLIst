@@ -21,8 +21,8 @@ class VideoTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable
     private struct DrawingConstants {
         static let size = CGSize(width: width, height: height)
         static let width = (VideoTableCell().screen?.bounds.width ?? 0) - 70.0
-        static let height = 260.0
-        static let inset = UIEdgeInsets(top: 0, left: 15, bottom: 10, right: 15)
+        static let height = 220.0
+        static let inset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         static let spacing = 10.0
     }
     @IBOutlet weak var thumbnail: UIImageView!
@@ -37,6 +37,7 @@ class VideoTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable
             collectionView.registerCellNibForClass(VideoItemCell.self)
         }
     }
+    @IBOutlet weak var collectionViewHeightConst: NSLayoutConstraint!
     var disposeBag = DisposeBag()
     private var videoPlayList: VideoPlayList?
     
@@ -49,6 +50,7 @@ class VideoTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable
         super.awakeFromNib()
         thumbnail.layer.cornerRadius = 4
         bgView.layer.cornerRadius = 4
+        collectionViewHeightConst.constant = DrawingConstants.height
     }
     
     func bind(reactor: VideoReactor) {
