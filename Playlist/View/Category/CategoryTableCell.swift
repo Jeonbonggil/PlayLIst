@@ -33,12 +33,6 @@ class CategoryTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoada
         }
     }
     @IBOutlet weak var collectionViewHeightConst: NSLayoutConstraint!
-    var reactor: CategoryReactor? {
-        didSet {
-            guard let reactor else { return }
-            bind(reactor: reactor)
-        }
-    }
     private var categoryList: [List]?
     var disposeBag = DisposeBag()
     

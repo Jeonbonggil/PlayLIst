@@ -48,13 +48,10 @@ class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, ReusableView
         }
     }
     private let currentBannerPage = PublishSubject<Int>()
-    var reactor: ChartReactor?
     var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        guard let reactor else { return }
-        bind(reactor: reactor)
     }
     
     func bind(reactor: ChartReactor) {

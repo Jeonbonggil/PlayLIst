@@ -34,12 +34,6 @@ class SectionTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadab
     }
     @IBOutlet weak var typeName: UILabel!
     @IBOutlet weak var collectionViewHeightConst: NSLayoutConstraint!
-    var reactor: SectionReactor? {
-        didSet {
-            guard let reactor else { return }
-            bind(reactor: reactor)
-        }
-    }
     private var sectionList: SectionList?
     var index = 0
     var disposeBag = DisposeBag()

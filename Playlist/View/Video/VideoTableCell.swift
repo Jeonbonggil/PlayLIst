@@ -37,12 +37,6 @@ class VideoTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable
             collectionView.registerCellNibForClass(VideoItemCell.self)
         }
     }
-    var reactor: VideoReactor? {
-        didSet {
-            guard let reactor else { return }
-            bind(reactor: reactor)
-        }
-    }
     var disposeBag = DisposeBag()
     private var videoPlayList: VideoPlayList?
     

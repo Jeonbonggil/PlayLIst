@@ -26,12 +26,6 @@ class PlaylistHeaderView: UIView, StoryboardView, NibLoadable, ReusableView {
         }
     }
     @IBOutlet weak var collectionVIewHeightConst: NSLayoutConstraint!
-    var reactor: PlaylistReactor? {
-        didSet {
-            guard let reactor else { return }
-            bind(reactor: reactor)
-        }
-    }
     var headerTitles: [String] = []
     var selectedIndex = 0
     var disposeBag = DisposeBag()
