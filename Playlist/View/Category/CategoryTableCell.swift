@@ -53,14 +53,17 @@ class CategoryTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoada
             .subscribe { [weak self] list in
                 guard let self, let list = list.element?.flatMap({ $0 })?.list else { return }
                 categoryList = list
-                let count = list.count
-                collectionViewHeightConst.constant =
-                DrawingConstants.height * (Double(count / 2) +
-                (count % 2 == 0 ? 0 : 1)) +
-                DrawingConstants.spacing * Double(count / 2)
+                calculateCollectionViewHeight(list.count)
                 collectionView.reloadData()
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func calculateCollectionViewHeight(_ count: Int) {
+        collectionViewHeightConst.constant =
+        DrawingConstants.height * (Double(count / 2) +
+        (count % 2 == 0 ? 0 : 1)) +
+        DrawingConstants.spacing * Double(count / 2)
     }
 }
 

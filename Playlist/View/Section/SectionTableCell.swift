@@ -62,12 +62,16 @@ class SectionTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadab
                 sectionList = list[index]
                 typeName.text = sectionList?.name
                 let count = sectionList?.shortcutCount ?? 0
-                collectionViewHeightConst.constant =
-                DrawingConstants.height * (Double(count / 2) + (count % 2 == 0 ? 0 : 1)) +
-                DrawingConstants.spacing * (Double(count / 2) + (count % 2 == 0 ? 0 : 1))
+                calculateCollectionViewHeight(count)
                 collectionView.reloadData()
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func calculateCollectionViewHeight(_ count: Int) {
+        collectionViewHeightConst.constant =
+        DrawingConstants.height * (Double(count / 2) + (count % 2 == 0 ? 0 : 1)) +
+        DrawingConstants.spacing * (Double(count / 2) + (count % 2 == 0 ? 0 : 1))
     }
 }
 
