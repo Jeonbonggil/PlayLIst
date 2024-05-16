@@ -11,59 +11,63 @@ import RxSwift
 import RxCocoa
 
 class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, ReusableView {
-    private enum SupplementaryKind {
-        static let header = "header-element-kind"
-        static let footer = "footer-element-kind"
-    }
     private struct DrawingConstants {
         static let size = CGSize(width: width, height: height)
         static let width = ChartTableCell().screen?.bounds.width ?? 0
-        static let height = 300.0
+        static let height = 360.0
+        static let footerHeight = 30.0
+        static let footerSize = CGSize(width: width, height: footerHeight)
     }
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
             collectionView.registerCellNibForClass(ChartItemCell.self)
+            collectionView.registerFooterForClass(ChartFooterView.self)
             collectionView.collectionViewLayout = compositionalLayout()
-            let cellWidth = DrawingConstants.width
-            let cellHeight = DrawingConstants.height
-            let insetX = (collectionView.bounds.width - cellWidth) / 2.0
-            let insetY = (collectionView.bounds.height - cellHeight) / 2.0
-            collectionView.contentInset = UIEdgeInsets(
-                top: insetY,
-                left: insetX,
-                bottom: insetY,
-                right: insetX
-            )
-            collectionView.decelerationRate = .fast
         }
     }
-    @IBOutlet weak var pageControl: UIPageControl! {
-        didSet {
-            pageControl.numberOfPages = 4
-            pageControl.currentPage = 0
-        }
-    }
-    private let currentBannerPage = PublishSubject<Int>()
+    private var chartList: ChartList?
+    private let currentPage = PublishSubject<Int>()
+    private let cellCount = 5
+    var index = 0
     var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        bgView.layer.cornerRadius = 10
+        collectionView.layer.cornerRadius = 10
     }
     
     func bind(reactor: ChartReactor) {
+        reactor.action.onNext(.getTitle(index))
+        reactor.action.onNext(.getDesc(index))
+        
+        reactor.state
+            .map { $0.chartList }
+            .take(1)
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] list in
+                guard let self, let list = list.element?.flatMap({ $0 }) else { return }
+                chartList = list[index]
+                self.collectionView.reloadData()
+            }
+            .disposed(by: disposeBag)
+        
         reactor.state
             .map { $0.title }
-            .distinctUntilChanged()
-            .bind(to: title.rx.text)
+            .take(1)
+            .observe(on: MainScheduler.instance)
+            .bind(to: title.rx.attributedText)
             .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.desc }
-            .distinctUntilChanged()
+            .take(1)
+            .observe(on: MainScheduler.instance)
             .bind(to: desc.rx.text)
             .disposed(by: disposeBag)
     }
@@ -74,10 +78,26 @@ class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, ReusableView
 extension ChartTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionFooter,
+            withReuseIdentifier: ChartFooterView.nibNm,
+            for: indexPath
+        ) as! ChartFooterView
+        guard let chartList else { return view }
+        let pageCount = (chartList.trackCount / cellCount) +
+        (chartList.trackCount % cellCount == 0 ? 0 : 1)
+        view.bind(input: currentPage, indexPath: indexPath, pageNumber: pageCount)
+        return view
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-//        return reactor?.chartCount ?? 0
-        return 20
+        return chartList?.trackCount ?? 0
     }
     
     func collectionView(
@@ -85,7 +105,8 @@ extension ChartTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ChartItemCell
-        cell.configureCell(at: indexPath.row, reactor)
+        guard let list = chartList?.trackList?[safe: indexPath.row] else { return cell }
+        cell.configureCell(at: indexPath.row, list)
         return cell
     }
     
@@ -116,7 +137,7 @@ extension ChartTableCell {
             )
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
+                heightDimension: .fractionalHeight(0.9)
             )
             // group
             let group = NSCollectionLayoutGroup.vertical(
@@ -127,35 +148,39 @@ extension ChartTableCell {
             // section
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .groupPaging
+            section.contentInsets = NSDirectionalEdgeInsets(
+                top: 0,
+                leading: 15,
+                bottom: 0,
+                trailing: 15
+            )
             section.visibleItemsInvalidationHandler = { [weak self] _, contentOffset, environment in
-                // 비교용 - Device의 Screen 크기
-                print("=== Screen Width/Height :", UIScreen.main.bounds.width, "/", UIScreen.main.bounds.height)
-                // ✅ contentOffset은 CollectionView의 bound를 기준으로 Scroll 결과 보여지는 컨텐츠의 Origin을 나타냄
-                // 배너 및 목록화면의 경우, Scroll하면 어디서 클릭해도 0부터 시작
-                // 상세화면의 경우, Scroll하면 어디서 클릭해도 약 -30부터 시작 (기기마다 다름, CollectionView의 bound를 기준으로 cell(이미지)의 leading이 왼쪽 (-30)에 위치하므로 음수임)
-                print("OffsetX :", contentOffset.x)
-
-                // ✅ environmnet는 collectionView layout 관련 정보를 담고 있음
-                // environment.container.contentSize는 CollectionView 중에서 현재 Scroll된 Group이 화면에 보이는 높이를 나타냄
-                print("environment Width :", environment.container.contentSize.width)   // Device의 스크린 너비와 동일
-                print("environment Height :", environment.container.contentSize.height) // Horizontal Scroll하면 스크린 너비와 같고, Vertical Scroll하면 그보다 커짐
-
-                let bannerIndex = Int(max(0, round(contentOffset.x / environment.container.contentSize.width)))  // 음수가 되는 것을 방지하기 위해 max 사용
-                if environment.container.contentSize.height == environment.container.contentSize.width {  // ❗Horizontal Scroll 하는 조건
-                    self?.currentBannerPage.onNext(bannerIndex)  // 클로저가 호출될 때마다 pageControl의 currentPage로 값을 보냄
-                }
+                let posY = round(contentOffset.x / environment.container.contentSize.width)
+                let bannerIndex = Int(max(0, posY))
+                self?.currentPage.onNext(bannerIndex)
             }
-            
             let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .fractionalHeight(1.0)
+                    heightDimension: .absolute(30)
                 ),
-                elementKind: SupplementaryKind.footer,
+                elementKind: UICollectionView.elementKindSectionFooter,
                 alignment: .bottom
             )
             section.boundarySupplementaryItems = [sectionFooter]
             return section
         }
+    }
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+
+extension ChartTableCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForFooterInSection section: Int
+    ) -> CGSize {
+        return DrawingConstants.footerSize
     }
 }

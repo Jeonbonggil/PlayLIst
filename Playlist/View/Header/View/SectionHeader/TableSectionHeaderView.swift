@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableSectionHeaderView: UITableViewHeaderFooterView, NibLoadable {
+class TableSectionHeaderView: UITableViewHeaderFooterView, NibLoadable, ReusableView {
     @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {

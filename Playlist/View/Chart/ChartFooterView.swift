@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-final class FooterView: UICollectionReusableView {
+final class ChartFooterView: UICollectionReusableView, ReusableView, NibLoadable {
     private let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.translatesAutoresizingMaskIntoConstraints = false

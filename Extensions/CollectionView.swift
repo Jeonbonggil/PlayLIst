@@ -33,6 +33,10 @@ public extension UICollectionView {
         self.register(UINib(nibName: className, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: className)
     }
     
+    func registerFooterForClass(_ cellClass: AnyClass) {
+        self.register(cellClass, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: classNameWithoutModule(cellClass))
+    }
+    
     func dequeueReusableCell<T: UICollectionViewCell>(
         forIndexPath indexPath: IndexPath
     ) -> T where T: ReusableView {

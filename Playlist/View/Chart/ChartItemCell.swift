@@ -12,18 +12,18 @@ class ChartItemCell: UICollectionViewCell, ReusableView, NibLoadable {
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var songTitle: UILabel!
-    @IBOutlet weak var songDesc: UILabel!
+    @IBOutlet weak var artistName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         thumbnail.layer.cornerRadius = 4
     }
     
-    func configureCell(at index: Int, _ reactor: ChartReactor?) {
-        let state = reactor?.currentState
-        thumbnail.kf.setImage(with: URL(string: ""), placeholder: UIImage(named: "kingfisher-1.jpg"))
+    func configureCell(at index: Int, _ list: TrackList?) {
+        guard let list else { return }
+        thumbnail.kf.setImage(with: list.imgURL)
         rankLabel.text = "\(index + 1)"
-        songTitle.text = "노래 제목"
-        songDesc.text = "설명"
+        songTitle.text = list.songTitle
+        artistName.text = list.artistName
     }
 }

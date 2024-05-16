@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,7 +40,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Desc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAL-fT-IPr">
                         <rect key="frame" x="71" y="19.666666666666668" width="195" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <color key="textColor" systemColor="systemGray2Color"/>
+                        <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -60,8 +60,8 @@
             </collectionViewCellContentView>
             <size key="customSize" width="277" height="42"/>
             <connections>
+                <outlet property="artistName" destination="vAL-fT-IPr" id="ir2-g4-VuW"/>
                 <outlet property="rankLabel" destination="Cwe-3s-M1q" id="dxc-dQ-aTq"/>
-                <outlet property="songDesc" destination="vAL-fT-IPr" id="1Do-Ab-1zN"/>
                 <outlet property="songTitle" destination="TtO-LQ-tRq" id="LPp-GR-uGu"/>
                 <outlet property="thumbnail" destination="fMA-T8-iJ7" id="Anc-gz-J9i"/>
             </connections>
@@ -70,8 +70,8 @@
     </objects>
     <resources>
         <image name="kingfisher-1.jpg" width="250" height="250"/>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

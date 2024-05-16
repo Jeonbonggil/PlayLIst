@@ -73,6 +73,10 @@ extension UITableView {
         register(UINib(nibName: T.nibNm, bundle: nil), forCellReuseIdentifier: T.reuseIdentifirer)
     }
     
+    func registerHeaderFooter<T: UITableViewHeaderFooterView>(_: T.Type) where T: ReusableView, T: NibLoadable {
+        register(UINib(nibName: T.nibNm, bundle: .main), forHeaderFooterViewReuseIdentifier: T.nibNm)
+    }
+    
     func dequeueReusableCell<T: UITableViewCell>(
         forIndexPath indexPath: IndexPath
     ) -> T where T: ReusableView {

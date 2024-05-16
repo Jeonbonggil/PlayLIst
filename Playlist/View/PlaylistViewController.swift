@@ -26,10 +26,7 @@ final class PlaylistViewController: UIViewController, StoryboardView {
             tableView.separatorInset = .zero
             tableView.separatorStyle = .none
             tableView.sectionHeaderTopPadding = 0
-            tableView.register(
-                UINib(nibName: TableSectionHeaderView.nibNm, bundle: .main),
-                forHeaderFooterViewReuseIdentifier: TableSectionHeaderView.nibNm
-            )
+            tableView.registerHeaderFooter(TableSectionHeaderView.self)
             tableView.register(ChartTableCell.self)
             tableView.register(SectionTableCell.self)
             tableView.register(CategoryTableCell.self)
@@ -87,8 +84,11 @@ final class PlaylistViewController: UIViewController, StoryboardView {
         reactor.state
             .map { $0.songData }
             .filter { $0 != nil }
-            .subscribe { [weak self] songData in
-                print("Song Data: \(String(describing: songData))")
+            .subscribe { [weak self] trackData in
+                guard let self else { return }
+                print("Track Data: \(String(describing: trackData))")
+                let trackVC = TrackDetailViewController(trackData: trackData, nibName: nil, bundle: nil)
+                present(trackVC, animated: false)
             }
             .disposed(by: disposeBag)
     }
@@ -109,6 +109,8 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let sectionType = SectionType.allCases[section]
+        guard sectionType != .sectionList else { return 0 }
         return DrawingConstants.sectionHeaderHeight
     }
     
@@ -134,6 +136,7 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         switch sectionType {
         case .rankChart:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ChartTableCell
+            cell.index = indexPath.row
             cell.reactor = chartReactor
             return cell
         case .sectionList:

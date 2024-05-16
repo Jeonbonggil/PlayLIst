@@ -10,16 +10,12 @@ struct ChartList: Decodable {
 	let id: Int
 	let name: String
 	let totalCount: Int
-	let trackList: [TrackList]
+	let trackList: [TrackList]?
 	let type: String
 }
 
 extension ChartList {
-    func title() -> String {
-        return name + " " + basedOnUpdate
-    }
-    
-    func desc() -> String {
-        return description
+    var trackCount: Int {
+        return trackList?.count ?? 0
     }
 }
