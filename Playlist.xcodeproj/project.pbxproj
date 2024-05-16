@@ -38,6 +38,8 @@
 		4430C96E2BF1A9AE00DB4F04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4430C96D2BF1A9AE00DB4F04 /* SnapKit */; };
 		4430C9712BF1AA1600DB4F04 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4430C9702BF1AA1600DB4F04 /* ReactorKit */; };
 		44AF5D302BF58F8F00E8F342 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AF5D2F2BF58F8F00E8F342 /* Label.swift */; };
+		44AF5D352BF59E5900E8F342 /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AF5D342BF59E5900E8F342 /* TrackDetailViewController.swift */; };
+		44AF5D382BF59F2400E8F342 /* TrackDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AF5D372BF59F2400E8F342 /* TrackDetailReactor.swift */; };
 		44C70DCC2BF1ACE4004A87A2 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DCB2BF1ACE4004A87A2 /* NetworkAPI.swift */; };
 		44C70DCE2BF1ACEE004A87A2 /* NetworkAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DCD2BF1ACEE004A87A2 /* NetworkAPIManager.swift */; };
 		44C70DDF2BF1B034004A87A2 /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70DCF2BF1B033004A87A2 /* ListData.swift */; };
@@ -120,6 +122,8 @@
 		4430C9512BF1A22E00DB4F04 /* PlaylistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		445CB9662BF5AC2D006F73CC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44AF5D2F2BF58F8F00E8F342 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		44AF5D342BF59E5900E8F342 /* TrackDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailViewController.swift; sourceTree = "<group>"; };
+		44AF5D372BF59F2400E8F342 /* TrackDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailReactor.swift; sourceTree = "<group>"; };
 		44C70DCB2BF1ACE4004A87A2 /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		44C70DCD2BF1ACEE004A87A2 /* NetworkAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIManager.swift; sourceTree = "<group>"; };
 		44C70DCF2BF1B033004A87A2 /* ListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 				44AF5D322BF59C2900E8F342 /* App */,
 				44C70DF62BF1B90E004A87A2 /* Extensions */,
 				44C70DB92BF1ACB4004A87A2 /* Network */,
+				44AF5D312BF59BED00E8F342 /* TrackDetail */,
 				4430C92D2BF1A22C00DB4F04 /* Playlist */,
 				4430C9442BF1A22E00DB4F04 /* PlaylistTests */,
 				4430C94E2BF1A22E00DB4F04 /* PlaylistUITests */,
@@ -264,6 +269,15 @@
 			path = PlaylistUITests;
 			sourceTree = "<group>";
 		};
+		44AF5D312BF59BED00E8F342 /* TrackDetail */ = {
+			isa = PBXGroup;
+			children = (
+				44AF5D332BF59E4100E8F342 /* View */,
+				44AF5D362BF59F1200E8F342 /* ViewModel */,
+			);
+			path = TrackDetail;
+			sourceTree = "<group>";
+		};
 		44AF5D322BF59C2900E8F342 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +289,22 @@
 				445CB9662BF5AC2D006F73CC /* Info.plist */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		44AF5D332BF59E4100E8F342 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44AF5D342BF59E5900E8F342 /* TrackDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44AF5D362BF59F1200E8F342 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				44AF5D372BF59F2400E8F342 /* TrackDetailReactor.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		44C70DB92BF1ACB4004A87A2 /* Network */ = {
@@ -613,6 +643,7 @@
 				44C70DE12BF1B034004A87A2 /* TrackArtistList.swift in Sources */,
 				44C70DED2BF1B034004A87A2 /* ImgList.swift in Sources */,
 				44C70DEB2BF1B034004A87A2 /* VideoList.swift in Sources */,
+				44AF5D352BF59E5900E8F342 /* TrackDetailViewController.swift in Sources */,
 				FC7231DE2BF4877F002F84BC /* ChartFooterView.swift in Sources */,
 				44C70DEC2BF1B034004A87A2 /* List.swift in Sources */,
 				FC8DF2672BF3A24600AAE388 /* ChartReactor.swift in Sources */,
@@ -639,6 +670,7 @@
 				44C70DF42BF1B6D6004A87A2 /* PlaylistReactor.swift in Sources */,
 				4408ECCA2BF20958007D21A4 /* ChartTableCell.swift in Sources */,
 				44C70DE42BF1B034004A87A2 /* Album.swift in Sources */,
+				44AF5D382BF59F2400E8F342 /* TrackDetailReactor.swift in Sources */,
 				44C70DF02BF1B05B004A87A2 /* NetworkAPIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

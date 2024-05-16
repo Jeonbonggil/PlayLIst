@@ -31,7 +31,7 @@ final class PlaylistReactor: Reactor {
     struct State {
         var headerIndex: Int?
         var playList: ListData?
-        var songData: SongData?
+        var trackData: SongData?
     }
     
     let initialState: State = State()
@@ -57,7 +57,7 @@ extension PlaylistReactor {
         case .setPlayList(let playlist):
             newState.playList = playlist.data
         case .fetchSongData(let songData):
-            newState.songData = songData
+            newState.trackData = songData
         
         }
         return newState

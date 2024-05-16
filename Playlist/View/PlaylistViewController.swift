@@ -82,7 +82,7 @@ final class PlaylistViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
         
         reactor.state
-            .map { $0.songData }
+            .map { $0.trackData }
             .filter { $0 != nil }
             .subscribe { [weak self] trackData in
                 guard let self else { return }

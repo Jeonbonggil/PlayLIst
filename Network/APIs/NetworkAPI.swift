@@ -10,7 +10,7 @@ import Moya
 
 public enum NetworkAPI {
     case playlist
-    case songDetail(trackID: String)
+    case trackDetail(trackID: String)
 }
 
 extension NetworkAPI: TargetType {
@@ -21,30 +21,25 @@ extension NetworkAPI: TargetType {
         switch self {
         case .playlist:
             return "dreamus-ios/challenge/main/browser"
-        case .songDetail:
-            return "dreamus-ios/challenge/main/track"
+        case .trackDetail(let trackID):
+            return "dreamus-ios/challenge/main/track/\(trackID)"
         }
     }
     public var method: Moya.Method {
         switch self {
-        case .playlist, .songDetail:
+        case .playlist, .trackDetail:
             return .get
         }
     }
     public var task: Task {
         switch self {
-        case .playlist:
+        case .playlist, .trackDetail:
             return .requestPlain
-        case .songDetail(let trackID):
-            return .requestParameters(
-                parameters: ["trackID": trackID],
-                encoding: URLEncoding.default
-            )
         }
     }
     public var validationType: ValidationType {
         switch self {
-        case .playlist, .songDetail:
+        case .playlist, .trackDetail:
             return .successCodes
         }
     }
