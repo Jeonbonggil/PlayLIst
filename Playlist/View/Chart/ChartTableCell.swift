@@ -10,6 +10,10 @@ import ReactorKit
 import RxSwift
 import RxCocoa
 
+protocol ChartTableCellDelegate: AnyObject {
+    func didSelectItemWithTrackID(_ trackID: Int)
+}
+
 class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, ReusableView {
     private struct DrawingConstants {
         static let size = CGSize(width: width, height: height)
@@ -34,6 +38,7 @@ class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, ReusableView
     private let currentPage = PublishSubject<Int>()
     private let cellCount = 5
     var index = 0
+    var delegate: ChartTableCellDelegate?
     var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
@@ -114,7 +119,8 @@ extension ChartTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        print("didSelect: \(indexPath.row)")
+        guard let list = chartList?.trackList?[safe: indexPath.row] else { return }
+        delegate?.didSelectItemWithTrackID(list.id)
     }
 }
 
@@ -150,9 +156,9 @@ extension ChartTableCell {
             section.orthogonalScrollingBehavior = .groupPaging
             section.contentInsets = NSDirectionalEdgeInsets(
                 top: 0,
-                leading: 15,
+                leading: 5,
                 bottom: 0,
-                trailing: 15
+                trailing: 5
             )
             section.visibleItemsInvalidationHandler = { [weak self] _, contentOffset, environment in
                 let posY = round(contentOffset.x / environment.container.contentSize.width)

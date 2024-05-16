@@ -10,6 +10,12 @@ struct SongData: Decodable {
 	let lyrics: String
 	let name: String
 	let playTime: String
-	let representationArtist: RepresentationArtist
+	let representationArtist: RepresentationArtist?
 	let trackArtistList: [TrackArtistList]
+}
+
+extension SongData {
+    var artistName: String {
+        return representationArtist?.name ?? ""
+    }
 }

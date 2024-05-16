@@ -9,26 +9,40 @@ import UIKit
 import ReactorKit
 
 final class TrackDetailViewController: UIViewController, StoryboardView {
+    @IBOutlet weak var songName: UILabel!
+    @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var closeButtonImage: UIImageView!
+    @IBOutlet weak var lyrics: UILabel!
+    var trackData: SongData?
     var disposeBag = DisposeBag()
     var reactor = TrackDetailReactor()
     
-    init(trackData: SongData?, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    init?(trackData: SongData, coder: NSCoder) {
+        super.init(coder: coder)
+        self.trackData = trackData
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupUI() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeButtonTapped))
+        tapGesture.numberOfTapsRequired = 1
+        closeButtonImage.addGestureRecognizer(tapGesture)
+        songName.text = trackData?.name ?? ""
+        lyrics.text = trackData?.lyrics ?? ""
+        artistName.text = trackData?.artistName ?? ""
+    }
+    
+    @objc private func closeButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func bind(reactor: TrackDetailReactor) {
-        reactor.action.onNext(.loadTrackDetail)
-        
 //        reactor.state
 //            .map { $0.trackDetail }
-//            .subscribe { [weak self] trackDetail in
-//                guard let self = self else { return }
-//                self.title = trackDetail.title
-//            }
+//            .bind(to: trackData)
 //            .disposed(by: disposeBag)
     }
 }
@@ -38,6 +52,7 @@ final class TrackDetailViewController: UIViewController, StoryboardView {
 extension TrackDetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {

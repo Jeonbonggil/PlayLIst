@@ -10,7 +10,7 @@ import Moya
 
 public enum NetworkAPI {
     case playlist
-    case trackDetail(trackID: String)
+    case trackDetail(trackID: Int)
 }
 
 extension NetworkAPI: TargetType {

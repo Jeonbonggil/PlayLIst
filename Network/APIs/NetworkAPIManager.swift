@@ -61,14 +61,14 @@ final public class NetworkAPIManager {
             onFailure: failure)
     }
     /// 상세 곡 정보 가져오기 API
-    static func fetchSongData(
-        trackID: String,
-        onSuccess success: @escaping (SongData) -> Void,
+    static func fetchTrackData(
+        trackID: Int,
+        onSuccess success: @escaping (TrackData) -> Void,
         onFailure failure: @escaping failureClosure
     ) {
         shared.request(
-            api: NetworkAPI.songDetail(trackID: trackID),
-            responseObject: SongData.self,
+            api: NetworkAPI.trackDetail(trackID: trackID),
+            responseObject: TrackData.self,
             onSuccess: success,
             onFailure: failure)
     }

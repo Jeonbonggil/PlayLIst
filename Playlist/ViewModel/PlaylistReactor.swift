@@ -19,13 +19,13 @@ final class PlaylistReactor: Reactor {
     enum Action {
         case headerIndex(Int)
         case loadPlaylist
-        case selectSongData(SongData)
+        case selectTrack(Int)
     }
     
     enum Mutation {
         case sendHeaderIndex(Int)
         case setPlayList(PlaylistData)
-        case fetchSongData(SongData)
+        case fetchTrackData(TrackData)
     }
     
     struct State {
@@ -44,8 +44,8 @@ extension PlaylistReactor {
             return selectHeaderIndex(at: index)
         case .loadPlaylist:
             return fetchPlaylist()
-        case .selectSongData(let songData):
-            return Observable.just(Mutation.fetchSongData(songData))
+        case .selectTrack(let trackID):
+            return fetchTrackData(trackID)
         }
     }
 
@@ -56,9 +56,8 @@ extension PlaylistReactor {
             newState.headerIndex = index
         case .setPlayList(let playlist):
             newState.playList = playlist.data
-        case .fetchSongData(let songData):
-            newState.trackData = songData
-        
+        case .fetchTrackData(let songData):
+            newState.trackData = songData.data
         }
         return newState
     }
@@ -85,10 +84,10 @@ private extension PlaylistReactor {
         }
     }
     
-    func fetchSongData(trackId: String) -> Observable<Mutation> {
+    func fetchTrackData(_ trackID: Int) -> Observable<Mutation> {
         return Observable<Mutation>.create { observer in
-            NetworkAPIManager.fetchSongData(trackID: trackId) { songData in
-                observer.onNext(.fetchSongData(songData))
+            NetworkAPIManager.fetchTrackData(trackID: trackID) { songData in
+                observer.onNext(.fetchTrackData(songData))
                 observer.onCompleted()
             } onFailure: { error in
                 observer.onError(error)
