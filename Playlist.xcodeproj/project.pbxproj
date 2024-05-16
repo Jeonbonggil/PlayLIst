@@ -113,12 +113,12 @@
 		4430C9352BF1A22C00DB4F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4430C9372BF1A22E00DB4F04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4430C93A2BF1A22E00DB4F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4430C93C2BF1A22E00DB4F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4430C9412BF1A22E00DB4F04 /* PlaylistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaylistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4430C9452BF1A22E00DB4F04 /* PlaylistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTests.swift; sourceTree = "<group>"; };
 		4430C94B2BF1A22E00DB4F04 /* PlaylistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaylistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4430C94F2BF1A22E00DB4F04 /* PlaylistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistUITests.swift; sourceTree = "<group>"; };
 		4430C9512BF1A22E00DB4F04 /* PlaylistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		445CB9662BF5AC2D006F73CC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44AF5D2F2BF58F8F00E8F342 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		44C70DCB2BF1ACE4004A87A2 /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		44C70DCD2BF1ACEE004A87A2 /* NetworkAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIManager.swift; sourceTree = "<group>"; };
@@ -270,8 +270,9 @@
 				4430C92E2BF1A22C00DB4F04 /* AppDelegate.swift */,
 				4430C9302BF1A22C00DB4F04 /* SceneDelegate.swift */,
 				4430C9372BF1A22E00DB4F04 /* Assets.xcassets */,
+				4430C9342BF1A22C00DB4F04 /* Main.storyboard */,
 				4430C9392BF1A22E00DB4F04 /* LaunchScreen.storyboard */,
-				4430C93C2BF1A22E00DB4F04 /* Info.plist */,
+				445CB9662BF5AC2D006F73CC /* Info.plist */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -339,7 +340,6 @@
 				FC7231E42BF4C1BA002F84BC /* Category */,
 				FC8DF25B2BF39C0C00AAE388 /* Video */,
 				4430C9322BF1A22C00DB4F04 /* PlaylistViewController.swift */,
-				4430C9342BF1A22C00DB4F04 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -823,7 +823,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LH2D7MUGD3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Playlist/Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -851,7 +851,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LH2D7MUGD3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Playlist/Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
