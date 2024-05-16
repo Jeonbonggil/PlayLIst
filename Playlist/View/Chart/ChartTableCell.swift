@@ -9,7 +9,6 @@ import UIKit
 import ReactorKit
 import RxSwift
 import RxCocoa
-import RxGesture
 
 class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, ReusableView {
     private enum SupplementaryKind {

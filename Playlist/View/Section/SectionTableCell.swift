@@ -9,7 +9,6 @@ import UIKit
 import ReactorKit
 import RxSwift
 import RxCocoa
-import RxGesture
 /**
  ## 설명
  * Shortcut Section Table Cell
@@ -87,7 +86,7 @@ extension SectionTableCell: UICollectionViewDataSource, UICollectionViewDelegate
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as SectionItemCell
-        guard let list = sectionList?.shortcutList?[indexPath.row] else { return UICollectionViewCell() }
+        guard let list = sectionList?.shortcutList?[indexPath.row] else { return cell}
         cell.configureCellForShortcut(list)
         return cell
     }
@@ -128,4 +127,3 @@ extension SectionTableCell: UICollectionViewDelegateFlowLayout {
         return DrawingConstants.inset
     }
 }
-

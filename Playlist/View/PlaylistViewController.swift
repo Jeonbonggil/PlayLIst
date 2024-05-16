@@ -153,6 +153,8 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - UIScrollViewDelegate
+
 extension PlaylistViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let indexPaths = tableView.indexPathsForVisibleRows,

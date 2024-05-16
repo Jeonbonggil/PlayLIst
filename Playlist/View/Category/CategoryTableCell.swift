@@ -9,7 +9,6 @@ import UIKit
 import ReactorKit
 import RxSwift
 import RxCocoa
-import RxGesture
 /**
  ## 설명
  * 카테고리 Cell
@@ -21,7 +20,7 @@ import RxGesture
 class CategoryTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable {
     private struct DrawingConstants {
         static let size = CGSize(width: width, height: height)
-        static let width = (SectionTableCell().screen?.bounds.width ?? 0) / 2 - inset.left - spacing / 2
+        static let width = (CategoryTableCell().screen?.bounds.width ?? 0) / 2 - inset.left - spacing / 2
         static let inset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         static let spacing = 15.0
         static let height = 86.0
@@ -80,7 +79,7 @@ extension CategoryTableCell: UICollectionViewDataSource, UICollectionViewDelegat
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as SectionItemCell
-        guard let list = categoryList?[safe: indexPath.row] else { return UICollectionViewCell() }
+        guard let list = categoryList?[safe: indexPath.row] else { return cell }
         cell.configureCellForCategory(list)
         return cell
     }

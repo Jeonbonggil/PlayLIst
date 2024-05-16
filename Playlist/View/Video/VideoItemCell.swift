@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 import RxSwift
 import RxCocoa
-import RxGesture
 /**
  ## 설명
  * <# 요약 #>

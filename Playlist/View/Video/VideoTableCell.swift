@@ -9,7 +9,6 @@ import UIKit
 import ReactorKit
 import RxSwift
 import RxCocoa
-import RxGesture
 /**
  ## 설명
  * 영상 리스트 Table Cell
@@ -95,7 +94,7 @@ extension VideoTableCell: UICollectionViewDataSource, UICollectionViewDelegate {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as VideoItemCell
-        guard let list = videoPlayList?.listFromSecond[indexPath.row] else { return UICollectionViewCell() }
+        guard let list = videoPlayList?.listFromSecond[indexPath.row] else { return cell }
         cell.configureCell(list)
         return cell
     }
