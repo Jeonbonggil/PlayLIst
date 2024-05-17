@@ -28,7 +28,6 @@ final class PlaylistViewController: UIViewController, StoryboardView {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
-            tableView.prefetchDataSource = self
             tableView.separatorInset = .zero
             tableView.separatorStyle = .none
             if #available(iOS 15.0, *) {
@@ -50,12 +49,10 @@ final class PlaylistViewController: UIViewController, StoryboardView {
     private var categoryReactor: CategoryReactor?
     private var videoReactor: VideoReactor?
     private var playlistData: ListData?
-    private var cellHeightsDictionary = [String: CGFloat]()
+    private var cellHeightsDict = [String: CGFloat]()
     var disposeBag = DisposeBag()
     
     func bind(reactor: PlaylistReactor) {
-        headerView.reactor = reactor
-        
         reactor.state
             .map { $0.playList }
             .compactMap { $0 }
@@ -186,14 +183,14 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         willDisplay cell: UITableViewCell,
         forRowAt indexPath: IndexPath
     ) {
-        return cellHeightsDictionary[indexPath.estimatedHeightKey] = cell.frame.size.height
+        return cellHeightsDict[indexPath.estimatedHeightKey] = cell.frame.height
     }
     
     func tableView(
         _ tableView: UITableView,
         estimatedHeightForRowAt indexPath: IndexPath
     ) -> CGFloat {
-        return cellHeightsDictionary[indexPath.estimatedHeightKey] ?? UITableView.automaticDimension
+        return cellHeightsDict[indexPath.estimatedHeightKey] ?? UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -222,47 +219,6 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
             cell.reactor = videoReactor
             cell.selectionStyle = .none
             return cell
-        }
-    }
-}
-
-// MARK: - UITableViewDataSourcePrefetching
-
-extension PlaylistViewController: UITableViewDataSourcePrefetching {
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        indexPaths.forEach { indexPath in
-            prefetchCellData(indexPath)
-        }
-    }
-    
-    func prefetchCellData(_ indexPath: IndexPath) {
-        DispatchQueue.main.async {
-            let indexPath = IndexPath(row: 0, section: indexPath.section)
-            if self.tableView.indexPathsForVisibleRows?.contains(indexPath) ?? false {
-                let sectionType = SectionType.allCases[indexPath.section]
-                switch sectionType {
-                case .rankChart:
-                    let cell = self.tableView.cellForRow(at: indexPath) as! ChartTableCell
-                    cell.reactor = self.chartReactor
-                    let indexSet = IndexSet(integer: indexPath.section)
-                    self.tableView.reloadSections(indexSet, with: .top)
-                case .sectionList:
-                    let cell = self.tableView.cellForRow(at: indexPath) as! SectionTableCell
-                    cell.reactor = self.sectionReactor
-                    let indexSet = IndexSet(integer: indexPath.section)
-                    self.tableView.reloadSections(indexSet, with: .top)
-                case .categoryList:
-                    let cell = self.tableView.cellForRow(at: indexPath) as! CategoryTableCell
-                    cell.reactor = self.categoryReactor
-                    let indexSet = IndexSet(integer: indexPath.section)
-                    self.tableView.reloadSections(indexSet, with: .top)
-                case .videoList:
-                    let cell = self.tableView.cellForRow(at: indexPath) as! VideoTableCell
-                    cell.reactor = self.videoReactor
-                    let indexSet = IndexSet(integer: indexPath.section)
-                    self.tableView.reloadSections(indexSet, with: .top)
-                }
-            }
         }
     }
 }
