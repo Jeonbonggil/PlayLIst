@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import ReactorKit
 
-final class PlaylistHeaderView: UIView, StoryboardView, NibLoadable, ReusableView {
+final class PlaylistHeaderView: UIView, NibLoadable, ReusableView {
     private struct DrawingConstants {
         static let size = CGSize(width: 80.0, height: height)
         static let height = 30.0
@@ -25,12 +24,10 @@ final class PlaylistHeaderView: UIView, StoryboardView, NibLoadable, ReusableVie
             collectionView.collectionViewLayout = flowLayout
         }
     }
-    @IBOutlet weak var collectionVIewHeightConst: NSLayoutConstraint!
     var delegate: PlayListActionDelegate?
     var isScrolling = true
     var headerTitles: [String] = []
     var selectedIndex = 0
-    var disposeBag = DisposeBag()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -44,10 +41,6 @@ final class PlaylistHeaderView: UIView, StoryboardView, NibLoadable, ReusableVie
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
-    func bind(reactor: PlaylistReactor) {
-        
     }
 }
 
@@ -97,8 +90,7 @@ extension PlaylistHeaderView: UICollectionViewDelegateFlowLayout {
         let insets = DrawingConstants.inset.left + DrawingConstants.inset.right + 5.0
         let title = headerTitles[indexPath.row]
         let width = title.widthOfString(usingFont: .systemFont(ofSize: 13)) + insets
-        let height = DrawingConstants.height
-        return CGSize(width: width, height: height)
+        return CGSize(width: width, height: DrawingConstants.height)
     }
     
     func collectionView(
