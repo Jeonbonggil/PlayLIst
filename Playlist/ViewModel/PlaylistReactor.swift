@@ -17,21 +17,18 @@ enum SectionType: Int, CaseIterable {
 
 final class PlaylistReactor: Reactor {
     enum Action {
-        case headerIndex(Int)
         case loadPlaylist
         case selectTrack(Int)
         case getError(NetworkAPIError)
     }
     
     enum Mutation {
-        case sendHeaderIndex(Int)
         case setPlayList(PlaylistData)
         case fetchTrackData(TrackData)
         case sendError(NetworkAPIError)
     }
     
     struct State {
-        var headerIndex: Int?
         var playList: ListData?
         var trackData: SongData?
         var error: NetworkAPIError?
@@ -43,8 +40,6 @@ final class PlaylistReactor: Reactor {
 extension PlaylistReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .headerIndex(let index):
-            return selectHeaderIndex(at: index)
         case .loadPlaylist:
             return fetchPlaylist()
         case .selectTrack(let trackID):
@@ -57,8 +52,6 @@ extension PlaylistReactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case .sendHeaderIndex(let index):
-            newState.headerIndex = index
         case .setPlayList(let playlist):
             newState.playList = playlist.data
         case .fetchTrackData(let songData):
@@ -71,14 +64,6 @@ extension PlaylistReactor {
 }
 
 private extension PlaylistReactor {
-    func selectHeaderIndex(at index: Int) -> Observable<Mutation> {
-        return Observable<Mutation>.create { observer in
-            observer.onNext(.sendHeaderIndex(index))
-            observer.onCompleted()
-            return Disposables.create()
-        }
-    }
-    
     func fetchPlaylist() -> Observable<Mutation> {
         return Observable<Mutation>.create { observer in
             NetworkAPIManager.fetchPlayList { playlist in

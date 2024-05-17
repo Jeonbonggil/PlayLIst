@@ -26,6 +26,7 @@ final class PlaylistHeaderView: UIView, StoryboardView, NibLoadable, ReusableVie
         }
     }
     @IBOutlet weak var collectionVIewHeightConst: NSLayoutConstraint!
+    var delegate: PlayListActionDelegate?
     var isScrolling = true
     var headerTitles: [String] = []
     var selectedIndex = 0
@@ -73,7 +74,7 @@ extension PlaylistHeaderView: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         collectionView.reloadData()
-        reactor?.action.onNext(.headerIndex(selectedIndex))
+        delegate?.didTapHeaderView(at: selectedIndex)
     }
 }
 

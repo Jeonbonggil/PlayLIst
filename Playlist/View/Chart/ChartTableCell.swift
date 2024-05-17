@@ -10,10 +10,6 @@ import ReactorKit
 import RxSwift
 import RxCocoa
 
-protocol ChartTableCellDelegate: AnyObject {
-    func didSelectItemWithTrackID(_ trackID: Int)
-}
-
 final class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, ReusableView {
     private struct DrawingConstants {
         static let size = CGSize(width: width, height: height)
@@ -38,7 +34,7 @@ final class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, Reusab
     private let currentPage = PublishSubject<Int>()
     private let cellCount = 5
     var index = 0
-    var delegate: ChartTableCellDelegate?
+    var delegate: PlayListActionDelegate?
     var disposeBag = DisposeBag()
     
     override func awakeFromNib() {

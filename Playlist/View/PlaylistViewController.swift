@@ -10,6 +10,11 @@ import RxCocoa
 import RxSwift
 import ReactorKit
 
+protocol PlayListActionDelegate: AnyObject {
+    func didTapHeaderView(at section: Int)
+    func didSelectItemWithTrackID(_ trackID: Int)
+}
+
 final class PlaylistViewController: UIViewController, StoryboardView {
     private struct DrawingConstants {
         static let sectionHeaderHeight = 40.0
@@ -17,6 +22,7 @@ final class PlaylistViewController: UIViewController, StoryboardView {
     @IBOutlet weak var headerView: PlaylistHeaderView! {
         didSet {
             headerView.headerTitles = sectionTitles
+            headerView.delegate = self
         }
     }
     @IBOutlet weak var tableView: UITableView! {
@@ -50,19 +56,6 @@ final class PlaylistViewController: UIViewController, StoryboardView {
     
     func bind(reactor: PlaylistReactor) {
         headerView.reactor = reactor
-        
-        reactor.state
-            .map { $0.headerIndex }
-            .compactMap { $0 }
-            .distinctUntilChanged()
-            .observe(on: MainScheduler.instance)
-            .subscribe { [weak self] section in
-                guard let self, let playlistData else { return }
-                let indexPath = IndexPath(row: 0, section: section)
-                tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-                headerView.isScrolling = false
-            }
-            .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.playList }
@@ -132,9 +125,15 @@ extension PlaylistViewController {
     }
 }
 
-//MARK: - ChartTableCellDelegate
+//MARK: - PlayListActionDelegate
 
-extension PlaylistViewController: ChartTableCellDelegate {
+extension PlaylistViewController: PlayListActionDelegate {
+    func didTapHeaderView(at section: Int) {
+        let indexPath = IndexPath(row: 0, section: section)
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        headerView.isScrolling = false
+    }
+    
     func didSelectItemWithTrackID(_ trackID: Int) {
         mainReactor.action.onNext(.selectTrack(trackID))
     }
