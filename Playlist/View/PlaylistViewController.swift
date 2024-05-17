@@ -53,8 +53,8 @@ final class PlaylistViewController: UIViewController, StoryboardView {
             .distinctUntilChanged()
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] index in
-                guard let self, let index = index.element?.flatMap({ $0 }) else { return }
-                let indexPath = IndexPath(row: 0, section: index)
+                guard let self, let section = index.element?.flatMap({ $0 }) else { return }
+                let indexPath = IndexPath(row: 0, section: section)
                 tableView.scrollToRow(at: indexPath, at: .top, animated: true)
             }
             .disposed(by: disposeBag)
@@ -102,11 +102,11 @@ extension PlaylistViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind(reactor: mainReactor)
-        mainReactor.action.onNext(.loadPlaylist)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        mainReactor.action.onNext(.loadPlaylist)
     }
     
     override func viewDidAppear(_ animated: Bool) {
