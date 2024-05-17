@@ -25,7 +25,9 @@ final class PlaylistViewController: UIViewController, StoryboardView {
             tableView.dataSource = self
             tableView.separatorInset = .zero
             tableView.separatorStyle = .none
-            tableView.sectionHeaderTopPadding = 0
+            if #available(iOS 15.0, *) {
+                tableView.sectionHeaderTopPadding = 0
+            }
             tableView.sectionHeaderHeight = 0
             tableView.sectionFooterHeight = 0
             tableView.registerHeaderFooter(TableSectionHeaderView.self)
@@ -47,6 +49,7 @@ final class PlaylistViewController: UIViewController, StoryboardView {
     
     func bind(reactor: PlaylistReactor) {
         headerView.reactor = reactor
+        
         reactor.state
             .map { $0.headerIndex }
             .filter { $0 != nil }
@@ -56,12 +59,14 @@ final class PlaylistViewController: UIViewController, StoryboardView {
                 guard let self, let section = index.element?.flatMap({ $0 }) else { return }
                 let indexPath = IndexPath(row: 0, section: section)
                 tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                headerView.isScrolling = false
             }
             .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.playList }
             .filter { $0 != nil }
+            .take(1)
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] list in
                 guard let self, let data = list.element?.flatMap({ $0 }) else { return }
@@ -81,7 +86,7 @@ final class PlaylistViewController: UIViewController, StoryboardView {
             .subscribe { [weak self] trackData in
                 guard let self, let trackData = trackData.element?.flatMap({ $0 }) else { return }
                 let trackVC = UIStoryboard(name: "Main", bundle: nil)
-                    .instantiateViewController(identifier: "TrackDetailViewController") { creator in
+                    .instantiateViewController(identifier: TrackDetailViewController.ID) { creator in
                         guard let vc = TrackDetailViewController(
                             trackData: trackData,
                             coder: creator
@@ -219,10 +224,20 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
 extension PlaylistViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let indexPaths = tableView.indexPathsForVisibleRows,
-            let firstIndexPath = indexPaths.first {
+           let firstIndexPath = indexPaths.first, headerView.isScrolling {
             let section = firstIndexPath.section
             headerView.selectedIndex = section
             headerView.collectionView.reloadData()
+        }
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        if let indexPaths = tableView.indexPathsForVisibleRows,
+           let firstIndexPath = indexPaths.first, !headerView.isScrolling {
+            let section = firstIndexPath.section
+            headerView.selectedIndex = section
+            headerView.collectionView.reloadData()
+            headerView.isScrolling = true
         }
     }
 }

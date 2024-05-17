@@ -9,6 +9,7 @@ import UIKit
 import ReactorKit
 
 final class TrackDetailViewController: UIViewController, StoryboardView {
+    static let ID = "\(TrackDetailViewController.self)"
     @IBOutlet weak var songName: UILabel!
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var closeButtonImage: UIImageView!

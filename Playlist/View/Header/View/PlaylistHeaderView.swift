@@ -26,6 +26,7 @@ class PlaylistHeaderView: UIView, StoryboardView, NibLoadable, ReusableView {
         }
     }
     @IBOutlet weak var collectionVIewHeightConst: NSLayoutConstraint!
+    var isScrolling = true
     var headerTitles: [String] = []
     var selectedIndex = 0
     var disposeBag = DisposeBag()
