@@ -42,6 +42,7 @@ final class PlaylistViewController: UIViewController, StoryboardView {
     private var categoryReactor: CategoryReactor?
     private var videoReactor: VideoReactor?
     private var playlistData: ListData?
+    private var cellHeightsDictionary = [String: CGFloat]()
     var disposeBag = DisposeBag()
     
     func bind(reactor: PlaylistReactor) {
@@ -166,6 +167,21 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
+        return cellHeightsDictionary[indexPath.estimatedHeightKey] = cell.frame.size.height
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        estimatedHeightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        return cellHeightsDictionary[indexPath.estimatedHeightKey] ?? UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
