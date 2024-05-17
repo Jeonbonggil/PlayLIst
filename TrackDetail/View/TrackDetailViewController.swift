@@ -14,6 +14,7 @@ final class TrackDetailViewController: UIViewController, StoryboardView {
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var closeButtonImage: UIImageView!
     @IBOutlet weak var lyrics: UILabel!
+    @IBOutlet weak var lyricsViewTopToScrollViewConst: NSLayoutConstraint!
     var trackData: SongData?
     var disposeBag = DisposeBag()
     var reactor = TrackDetailReactor()
@@ -32,8 +33,9 @@ final class TrackDetailViewController: UIViewController, StoryboardView {
         tapGesture.numberOfTapsRequired = 1
         closeButtonImage.addGestureRecognizer(tapGesture)
         songName.text = trackData?.name ?? ""
-        lyrics.text = trackData?.lyrics ?? ""
+        lyrics.text = trackData?.lyrics ?? "가사 정보 없음"
         artistName.text = trackData?.artistName ?? ""
+        lyricsViewTopToScrollViewConst.constant = trackData?.lyrics?.isEmpty ?? true ? 100 : 0
     }
     
     @objc private func closeButtonTapped() {

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -81,11 +82,12 @@
                                 <rect key="frame" x="0.0" y="135" width="393" height="683"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3MX-Ii-wLq">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="382"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYR-jb-ek8">
-                                                <rect key="frame" x="15" y="0.0" width="363" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYR-jb-ek8">
+                                                <rect key="frame" x="15" y="0.0" width="363" height="382"/>
+                                                <mutableString key="text">모르는 줄 몰랐지 \r\n사랑해 본 줄 알았지 \r\n네가 내 맘속에 오기 전엔 \r\n나도 안다고 믿었지  \r\n\r\n별거 없는 한마디 \r\n연락 한 통에 \r\n괜히 혼자 들뜬 기분이 돼\r\n날 바라볼 때 \r\n살짝 웃을 때 \r\n그냥 널 따라 웃게 돼 \r\n\r\n너를 알아갈수록 더 \r\n알면 알수록 더 \r\n더욱더 좋아지는 너 \r\n사랑 이게 맞나 봐 \r\n벅차는 이 느낌을 놓치기 싫어\r\n \r\n날 바라봐 줄수록 더 \r\n안아줄수록 더 \r\n더 네 맘을 갖고 싶어\r\n사랑 이게 맞나 봐 \r\n이보다 좋은 건 \r\n있을 수 없을 것만 같아  \r\n\r\n아직까지는 어색해 \r\n서툴러도 조금 이해해 줄래\r\n\r\n혹시 내 한 마디가 \r\n분위기를 깰까\r\n썼다 지웠다 계속 반복해 \r\n고갤 떨군 채 \r\n힘들어할 땐 \r\n말없이 너를 안게 돼\r\n\r\n너를 알아갈수록 더 \r\n알면 알수록 더 \r\n더욱더 좋아지는 너\r\n사랑 이게 맞나 봐 \r\n이보다 좋은 건 있을 수 \r\n없을 것만 같아  \r\n\r\n너로 인해 알게 됐어\r\n온전히 사랑한다는 걸\r\n계속 널 향해 갈 테니까\r\n나를 힘껏 안아줘\r\n\r\n사랑 이게 맞나 봐 \r\n벅차는 이 느낌을 놓치기 싫어\r\n\r\n날 바라봐 줄수록 더 \r\n안아줄수록 더 \r\n더 네 맘을 갖고 싶어\r\n사랑 이게 맞나 봐 \r\n이보다 </mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -102,8 +104,8 @@
                                 <constraints>
                                     <constraint firstItem="5BC-G3-Klg" firstAttribute="trailing" secondItem="3MX-Ii-wLq" secondAttribute="trailing" id="CYJ-cy-4TV"/>
                                     <constraint firstItem="3MX-Ii-wLq" firstAttribute="top" secondItem="daf-UO-3fR" secondAttribute="top" id="Cha-LU-ZE9"/>
-                                    <constraint firstItem="3MX-Ii-wLq" firstAttribute="height" secondItem="5BC-G3-Klg" secondAttribute="height" priority="250" id="Fa1-Yi-iGp"/>
                                     <constraint firstItem="3MX-Ii-wLq" firstAttribute="leading" secondItem="daf-UO-3fR" secondAttribute="leading" id="H2S-mg-SWQ"/>
+                                    <constraint firstItem="3MX-Ii-wLq" firstAttribute="height" secondItem="5BC-G3-Klg" secondAttribute="height" priority="250" id="Kfy-rc-JAj"/>
                                     <constraint firstItem="daf-UO-3fR" firstAttribute="trailing" secondItem="3MX-Ii-wLq" secondAttribute="trailing" id="SRG-Il-p7m"/>
                                     <constraint firstItem="daf-UO-3fR" firstAttribute="bottom" secondItem="3MX-Ii-wLq" secondAttribute="bottom" id="Vl2-lh-Avq"/>
                                 </constraints>
@@ -132,6 +134,7 @@
                         <outlet property="artistName" destination="zQW-Ha-6UZ" id="zMa-L1-uAy"/>
                         <outlet property="closeButtonImage" destination="hNT-zv-98a" id="Ndm-Pz-HCM"/>
                         <outlet property="lyrics" destination="eYR-jb-ek8" id="NIL-wo-mNh"/>
+                        <outlet property="lyricsViewTopToScrollViewConst" destination="Cha-LU-ZE9" id="HLN-LD-aY9"/>
                         <outlet property="songName" destination="eng-vq-x41" id="BxP-zs-syi"/>
                     </connections>
                 </viewController>
