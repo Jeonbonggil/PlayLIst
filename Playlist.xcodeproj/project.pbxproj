@@ -19,7 +19,6 @@
 		4408ECD32BF32E87007D21A4 /* ChartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408ECD22BF32E87007D21A4 /* ChartItemCell.swift */; };
 		4408ECD52BF32ED5007D21A4 /* ChartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4408ECD42BF32ED5007D21A4 /* ChartItemCell.xib */; };
 		4408ECD72BF33D67007D21A4 /* SectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408ECD62BF33D67007D21A4 /* SectionTableCell.swift */; };
-		4408ECDA2BF33E8E007D21A4 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 4408ECD92BF33E8E007D21A4 /* RxGesture */; };
 		4408ECDC2BF33F43007D21A4 /* SectionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4408ECDB2BF33F43007D21A4 /* SectionTableCell.xib */; };
 		4430C92F2BF1A22C00DB4F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C92E2BF1A22C00DB4F04 /* AppDelegate.swift */; };
 		4430C9312BF1A22C00DB4F04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430C9302BF1A22C00DB4F04 /* SceneDelegate.swift */; };
@@ -186,7 +185,6 @@
 			files = (
 				4430C96B2BF1A93300DB4F04 /* RxRelay in Frameworks */,
 				4430C9632BF1A66F00DB4F04 /* Kingfisher in Frameworks */,
-				4408ECDA2BF33E8E007D21A4 /* RxGesture in Frameworks */,
 				4430C9712BF1AA1600DB4F04 /* ReactorKit in Frameworks */,
 				4430C9602BF1A5BB00DB4F04 /* Alamofire in Frameworks */,
 				4430C96E2BF1A9AE00DB4F04 /* SnapKit in Frameworks */,
@@ -491,7 +489,6 @@
 				4430C96A2BF1A93300DB4F04 /* RxRelay */,
 				4430C96D2BF1A9AE00DB4F04 /* SnapKit */,
 				4430C9702BF1AA1600DB4F04 /* ReactorKit */,
-				4408ECD92BF33E8E007D21A4 /* RxGesture */,
 			);
 			productName = Playlist;
 			productReference = 4430C92B2BF1A22C00DB4F04 /* Playlist.app */;
@@ -572,7 +569,6 @@
 				4430C9672BF1A93300DB4F04 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				4430C96C2BF1A9AE00DB4F04 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4430C96F2BF1AA1600DB4F04 /* XCRemoteSwiftPackageReference "ReactorKit" */,
-				4408ECD82BF33E8E007D21A4 /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = 4430C92C2BF1A22C00DB4F04 /* Products */;
 			projectDirPath = "";
@@ -1030,14 +1026,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4408ECD82BF33E8E007D21A4 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.4;
-			};
-		};
 		4430C95E2BF1A5BB00DB4F04 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -1089,11 +1077,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4408ECD92BF33E8E007D21A4 /* RxGesture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4408ECD82BF33E8E007D21A4 /* XCRemoteSwiftPackageReference "RxGesture" */;
-			productName = RxGesture;
-		};
 		4430C95F2BF1A5BB00DB4F04 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4430C95E2BF1A5BB00DB4F04 /* XCRemoteSwiftPackageReference "Alamofire" */;
