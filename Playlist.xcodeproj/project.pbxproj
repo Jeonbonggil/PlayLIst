@@ -67,6 +67,7 @@
 		44C70E0A2BF1CC1E004A87A2 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E092BF1CC1E004A87A2 /* CollectionView.swift */; };
 		44C70E0C2BF1CC71004A87A2 /* SharedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E0B2BF1CC71004A87A2 /* SharedFunctions.swift */; };
 		44C70E102BF1CFC7004A87A2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C70E0F2BF1CFC7004A87A2 /* String.swift */; };
+		44CAFFA62BF6D6F9008742FF /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CAFFA52BF6D6F9008742FF /* IndexPath.swift */; };
 		FC7231DE2BF4877F002F84BC /* ChartFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7231DD2BF4877F002F84BC /* ChartFooterView.swift */; };
 		FC7231E12BF4A0E8002F84BC /* TableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7231E02BF4A0E8002F84BC /* TableSectionHeaderView.swift */; };
 		FC7231E32BF4A11F002F84BC /* TableSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7231E22BF4A11F002F84BC /* TableSectionHeaderView.xib */; };
@@ -159,6 +160,7 @@
 		44C70E092BF1CC1E004A87A2 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		44C70E0B2BF1CC71004A87A2 /* SharedFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedFunctions.swift; sourceTree = "<group>"; };
 		44C70E0F2BF1CFC7004A87A2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		44CAFFA52BF6D6F9008742FF /* IndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPath.swift; sourceTree = "<group>"; };
 		FC7231DD2BF4877F002F84BC /* ChartFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFooterView.swift; sourceTree = "<group>"; };
 		FC7231E02BF4A0E8002F84BC /* TableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionHeaderView.swift; sourceTree = "<group>"; };
 		FC7231E22BF4A11F002F84BC /* TableSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				44C70DFD2BF1B90E004A87A2 /* View+AutoLayout.swift */,
 				44C70E0F2BF1CFC7004A87A2 /* String.swift */,
 				44AF5D2F2BF58F8F00E8F342 /* Label.swift */,
+				44CAFFA52BF6D6F9008742FF /* IndexPath.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				44C70E062BF1BB3F004A87A2 /* PlaylistHeaderCell.swift in Sources */,
 				44C70DE02BF1B034004A87A2 /* VideoPlayList.swift in Sources */,
 				44C70DE92BF1B034004A87A2 /* ChartList.swift in Sources */,
+				44CAFFA62BF6D6F9008742FF /* IndexPath.swift in Sources */,
 				4408ECC32BF1F4EF007D21A4 /* UIViewController.swift in Sources */,
 				4408ECD32BF32E87007D21A4 /* ChartItemCell.swift in Sources */,
 				44C70DF42BF1B6D6004A87A2 /* PlaylistReactor.swift in Sources */,
