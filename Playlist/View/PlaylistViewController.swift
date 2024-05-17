@@ -53,11 +53,11 @@ final class PlaylistViewController: UIViewController, StoryboardView {
         
         reactor.state
             .map { $0.headerIndex }
-            .filter { $0 != nil }
+            .compactMap { $0 }
             .distinctUntilChanged()
             .observe(on: MainScheduler.instance)
-            .subscribe { [weak self] index in
-                guard let self, let section = index.element?.flatMap({ $0 }) else { return }
+            .subscribe { [weak self] section in
+                guard let self, let playlistData else { return }
                 let indexPath = IndexPath(row: 0, section: section)
                 tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 headerView.isScrolling = false
@@ -66,11 +66,11 @@ final class PlaylistViewController: UIViewController, StoryboardView {
         
         reactor.state
             .map { $0.playList }
-            .filter { $0 != nil }
+            .compactMap { $0 }
             .take(1)
             .observe(on: MainScheduler.instance)
-            .subscribe { [weak self] list in
-                guard let self, let data = list.element?.flatMap({ $0 }) else { return }
+            .subscribe { [weak self] data in
+                guard let self else { return }
                 playlistData = data
                 chartReactor = ChartReactor(chartList: data.chartList)
                 sectionReactor = SectionReactor(sectionList: data.sectionList)
@@ -82,19 +82,13 @@ final class PlaylistViewController: UIViewController, StoryboardView {
         
         reactor.state
             .map { $0.trackData }
-            .filter { $0 != nil }
+            .compactMap { $0 }
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] trackData in
-                guard let self, let trackData = trackData.element?.flatMap({ $0 }) else { return }
+                guard let self else { return }
                 let trackVC = UIStoryboard(name: "Main", bundle: nil)
-                    .instantiateViewController(identifier: TrackDetailViewController.ID) { creator in
-                        guard let vc = TrackDetailViewController(
-                            trackData: trackData,
-                            coder: creator
-                        ) else {
-                            return UIViewController()
-                        }
-                        return vc
+                    .instantiateViewController(identifier: TrackDetailViewController.ID) { coder in
+                        return TrackDetailViewController(trackData: trackData, coder: coder)
                     }
                 present(trackVC, animated: true)
             }

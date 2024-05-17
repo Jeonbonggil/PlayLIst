@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class ChartItemCell: UICollectionViewCell, ReusableView, NibLoadable {
+final class ChartItemCell: UICollectionViewCell, ReusableView, NibLoadable {
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var songTitle: UILabel!

@@ -17,7 +17,7 @@ import RxCocoa
  * Note: APP
  * See: <# 제플린 없음 #>
  */
-class VideoItemCell: UICollectionViewCell, ReusableView, NibLoadable {
+final class VideoItemCell: UICollectionViewCell, ReusableView, NibLoadable {
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var playTimeBgView: UIView!
     @IBOutlet weak var playTime: UILabel!

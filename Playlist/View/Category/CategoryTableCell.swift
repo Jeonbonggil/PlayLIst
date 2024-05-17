@@ -17,7 +17,7 @@ import RxCocoa
  * Note: APP
  * See: <# 제플린 없음 #>
  */
-class CategoryTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable {
+final class CategoryTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable {
     private struct DrawingConstants {
         static let size = CGSize(width: width, height: height)
         static let width = (CategoryTableCell().screen?.bounds.width ?? 0) / 2 - inset.left - spacing / 2
@@ -38,6 +38,11 @@ class CategoryTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoada
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     func bind(reactor: CategoryReactor) {

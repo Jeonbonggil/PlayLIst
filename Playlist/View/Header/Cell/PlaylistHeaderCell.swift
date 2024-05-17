@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlaylistHeaderCell: UICollectionViewCell, ReusableView {
+final class PlaylistHeaderCell: UICollectionViewCell, ReusableView {
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var headerTitle: UILabel!
     

@@ -17,7 +17,7 @@ import RxCocoa
  * Note: APP
  * See: <# 제플린 없음 #>
  */
-class SectionTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable {
+final class SectionTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable {
     private struct DrawingConstants {
         static let size = CGSize(width: width, height: height)
         static let width = (SectionTableCell().screen?.bounds.width ?? 0) / 2 - inset.left - spacing / 2
@@ -50,9 +50,10 @@ class SectionTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadab
     func bind(reactor: SectionReactor) {
         reactor.state
             .map { $0.sectionList }
+            .compactMap { $0 }
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] list in
-                guard let self, let list = list.element?.flatMap({ $0 }) else { return }
+                guard let self else { return }
                 sectionList = list[index]
                 typeName.text = sectionList?.name
                 let count = sectionList?.shortcutCount ?? 0

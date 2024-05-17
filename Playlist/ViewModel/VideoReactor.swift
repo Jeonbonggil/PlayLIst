@@ -8,7 +8,7 @@
 import Foundation
 import ReactorKit
 
-class VideoReactor: Reactor {
+final class VideoReactor: Reactor {
     enum Action {
         case loadVideo
     }

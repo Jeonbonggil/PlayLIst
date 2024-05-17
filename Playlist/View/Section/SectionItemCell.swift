@@ -16,7 +16,7 @@ import ReactorKit
  * Note: APP
  * See: <# 제플린 없음 #>
  */
-class SectionItemCell: UICollectionViewCell, ReusableView, NibLoadable {
+final class SectionItemCell: UICollectionViewCell, ReusableView, NibLoadable {
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var genreName: UILabel!
     

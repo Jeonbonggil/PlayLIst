@@ -14,7 +14,7 @@ protocol ChartTableCellDelegate: AnyObject {
     func didSelectItemWithTrackID(_ trackID: Int)
 }
 
-class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, ReusableView {
+final class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, ReusableView {
     private struct DrawingConstants {
         static let size = CGSize(width: width, height: height)
         static let width = ChartTableCell().screen?.bounds.width ?? 0
@@ -47,16 +47,22 @@ class ChartTableCell: UITableViewCell, StoryboardView, NibLoadable, ReusableView
         collectionView.layer.cornerRadius = 10
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
     func bind(reactor: ChartReactor) {
         reactor.action.onNext(.getTitle(index))
         reactor.action.onNext(.getDesc(index))
         
         reactor.state
             .map { $0.chartList }
+            .compactMap { $0 }
             .take(1)
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] list in
-                guard let self, let list = list.element?.flatMap({ $0 }) else { return }
+                guard let self else { return }
                 chartList = list[index]
                 self.collectionView.reloadData()
             }

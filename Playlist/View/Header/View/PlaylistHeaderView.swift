@@ -8,7 +8,7 @@
 import UIKit
 import ReactorKit
 
-class PlaylistHeaderView: UIView, StoryboardView, NibLoadable, ReusableView {
+final class PlaylistHeaderView: UIView, StoryboardView, NibLoadable, ReusableView {
     private struct DrawingConstants {
         static let size = CGSize(width: 80.0, height: height)
         static let height = 30.0

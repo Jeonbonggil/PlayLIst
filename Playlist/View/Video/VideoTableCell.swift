@@ -17,7 +17,7 @@ import RxCocoa
  * Note: APP
  * See: <# 제플린 없음 #>
  */
-class VideoTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable {
+final class VideoTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable {
     private struct DrawingConstants {
         static let size = CGSize(width: width, height: height)
         static let width = (VideoTableCell().screen?.bounds.width ?? 0) - 70.0
@@ -56,9 +56,10 @@ class VideoTableCell: UITableViewCell, StoryboardView, ReusableView, NibLoadable
     func bind(reactor: VideoReactor) {
         reactor.state
             .map { $0.videoPlayList }
+            .compactMap { $0 }
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] list in
-                guard let self, let list = list.element?.flatMap ({ $0 }) else { return }
+                guard let self else { return }
                 videoPlayList = list
                 configureCell(list)
                 collectionView.reloadData()

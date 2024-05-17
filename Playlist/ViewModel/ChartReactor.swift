@@ -9,7 +9,7 @@ import UIKit
 import ReactorKit
 import RxCocoa
 
-class ChartReactor: Reactor {
+final class ChartReactor: Reactor {
     enum Action {
         case loadChart
         case getTitle(Int)
@@ -50,7 +50,7 @@ extension ChartReactor {
                     Mutation.setTitle(index)
                 }
         case .getDesc(let index):
-            return BehaviorRelay<NSAttributedString>(value: .init(string: ""))
+            return BehaviorRelay<String>(value: "")
                 .asObservable()
                 .map { _ in
                     Mutation.setDesc(index)
@@ -71,12 +71,12 @@ extension ChartReactor {
         return newState
     }
     
-    func fetchChart() -> [ChartList]? {
+    private func fetchChart() -> [ChartList]? {
         guard let chartList = initialState.chartList else { return [] }
         return chartList
     }
     
-    func combinationTitle(at index: Int) -> NSAttributedString {
+    private func combinationTitle(at index: Int) -> NSAttributedString {
         guard let chartList = initialState.chartList else { return .init(string: "") }
         let title = chartList[index].name
         let subTitle = chartList[index].basedOnUpdate
@@ -101,7 +101,7 @@ extension ChartReactor {
         return attrSting
     }
         
-    func setDesc(at index: Int) -> String {
+    private func setDesc(at index: Int) -> String {
         guard let chartList = initialState.chartList else { return "" }
         return chartList[index].description
     }
