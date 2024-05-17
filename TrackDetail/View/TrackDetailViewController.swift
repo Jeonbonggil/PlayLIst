@@ -7,6 +7,8 @@
 
 import UIKit
 import ReactorKit
+import RxSwift
+import RxCocoa
 
 final class TrackDetailViewController: UIViewController, StoryboardView {
     static let ID = "\(TrackDetailViewController.self)"
@@ -16,12 +18,12 @@ final class TrackDetailViewController: UIViewController, StoryboardView {
     @IBOutlet weak var lyrics: UILabel!
     @IBOutlet weak var lyricsViewTopToScrollViewConst: NSLayoutConstraint!
     var trackData: SongData?
+    var reactor: TrackDetailReactor?
     var disposeBag = DisposeBag()
-    var reactor = TrackDetailReactor()
     
     init?(trackData: SongData, coder: NSCoder) {
         super.init(coder: coder)
-        self.trackData = trackData
+        reactor = TrackDetailReactor(trackData: trackData)
     }
     
     required init?(coder: NSCoder) {
@@ -32,10 +34,6 @@ final class TrackDetailViewController: UIViewController, StoryboardView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeButtonTapped))
         tapGesture.numberOfTapsRequired = 1
         closeButtonImage.addGestureRecognizer(tapGesture)
-        songName.text = trackData?.name ?? ""
-        lyrics.text = trackData?.lyrics ?? "가사 정보 없음"
-        artistName.text = trackData?.artistName ?? ""
-        lyricsViewTopToScrollViewConst.constant = trackData?.lyrics?.isEmpty ?? true ? 100 : 0
     }
     
     @objc private func closeButtonTapped() {
@@ -43,10 +41,43 @@ final class TrackDetailViewController: UIViewController, StoryboardView {
     }
     
     func bind(reactor: TrackDetailReactor) {
-//        reactor.state
-//            .map { $0.trackDetail }
-//            .bind(to: trackData)
-//            .disposed(by: disposeBag)
+        reactor.state
+            .map { $0.songName }
+            .filter { $0 != nil }
+            .bind(to: songName.rx.text)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.artistName }
+            .filter { $0 != nil }
+            .bind(to: artistName.rx.text)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.lyrics ?? "가사 정보 없음" }
+            .bind(to: lyrics.rx.text)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.lyricsViewTopConst }
+            .compactMap { $0 }
+            .bind(to: lyricsViewTopToScrollViewConst.rx.constant)
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindAction() {
+        reactor?.action.onNext(.getSongName)
+        reactor?.action.onNext(.getArtistName)
+        reactor?.action.onNext(.getLyrics)
+        reactor?.action.onNext(.getLyricsViewTop)
+    }
+}
+
+extension Reactive where Base: NSLayoutConstraint {
+    var constant: Binder<CGFloat> {
+        return Binder(self.base) { constraint, value in
+            constraint.constant = value
+        }
     }
 }
 
@@ -60,6 +91,7 @@ extension TrackDetailViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        bindAction()
     }
     
     override func viewDidAppear(_ animated: Bool) {
