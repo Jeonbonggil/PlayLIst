@@ -21,7 +21,6 @@ final class PlaylistViewController: UIViewController, StoryboardView {
     }
     @IBOutlet weak var headerView: PlaylistHeaderView! {
         didSet {
-            headerView.headerTitles = sectionTitles
             headerView.delegate = self
         }
     }
@@ -44,7 +43,7 @@ final class PlaylistViewController: UIViewController, StoryboardView {
             tableView.register(VideoTableCell.self)
         }
     }
-    private let sectionTitles = ["차트", "장르/테마", "오디오", "영상"]
+    private var sectionTitles = [String]()
     private var mainReactor = PlaylistReactor()
     private var chartReactor: ChartReactor?
     private var sectionReactor: SectionReactor?
@@ -65,11 +64,14 @@ final class PlaylistViewController: UIViewController, StoryboardView {
             .subscribe { [weak self] data in
                 guard let self else { return }
                 playlistData = data
+                sectionTitles = ["차트", "장르/테마", "오디오", "영상"]
+                headerView.headerTitles = sectionTitles
                 chartReactor = ChartReactor(chartList: data.chartList)
                 sectionReactor = SectionReactor(sectionList: data.sectionList)
                 categoryReactor = CategoryReactor(categoryList: data.programCategoryList)
                 videoReactor = VideoReactor(videoPlayList: data.videoPlayList)
                 tableView.reloadData()
+                headerView.collectionView.reloadData()
             }
             .disposed(by: disposeBag)
         
@@ -147,7 +149,8 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard SectionType.allCases[section] != .sectionList else { return nil }
+        guard SectionType.allCases[section] != .sectionList,
+                sectionTitles.count > 0 else { return nil }
         let view = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: TableSectionHeaderView.nibNm
         ) as? TableSectionHeaderView
