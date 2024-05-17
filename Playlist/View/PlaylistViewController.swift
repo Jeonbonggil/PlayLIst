@@ -236,10 +236,13 @@ extension PlaylistViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        if let indexPaths = tableView.indexPathsForVisibleRows,
-           let firstIndexPath = indexPaths.first, !headerView.isScrolling {
-            let section = firstIndexPath.section
-            headerView.selectedIndex = section
+        if let indexPaths = tableView.indexPathsForVisibleRows, !headerView.isScrolling {
+            if indexPaths.count > 2 {
+                let indexPath = indexPaths[1]
+                headerView.selectedIndex = indexPath.section
+            } else if let IndexPath = indexPaths.last {
+                headerView.selectedIndex = IndexPath.section
+            }
             headerView.collectionView.reloadData()
             headerView.isScrolling = true
         }
