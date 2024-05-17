@@ -31,7 +31,7 @@ final public class NetworkAPIManager {
                     let responseObject = try response.map(responseObject.self)
                     success(responseObject)
                 } catch {
-                    failure(.decodeError(response.description))
+                    failure(.decodeError(error.localizedDescription))
                 }
             case .failure(let error):
                 if retryCount < Self.maxRetryCount {

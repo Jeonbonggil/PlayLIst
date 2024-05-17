@@ -99,6 +99,16 @@ final class PlaylistViewController: UIViewController, StoryboardView {
                 present(trackVC, animated: true)
             }
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.error }
+            .compactMap { $0 }
+            .observe(on: MainScheduler.asyncInstance)
+            .subscribe { error in
+                let message = error.element?.localizedDescription ?? "Error"
+                UIAlertController.showMessage(message)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
